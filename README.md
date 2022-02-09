@@ -1,4 +1,4 @@
-# flowers_crise
+# Flowers Crise
 This is game, type off tower defence, created as part of the project "GameBox".
 Внимание! В пректе существет несколько папок, все перечислять не стану, расскажу только о тех которые вам потребуются:
 Каталог "Assets" - каталог где храняться все файлы нашего проекта. В нем имееться несколько подкоталогов.
