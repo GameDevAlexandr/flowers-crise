@@ -52,7 +52,7 @@ public class DefenderScript : MonoBehaviour
             if(hitColliders[i].tag == "Enemy"&& hitColliders[i].GetComponent<EnemysScript>().currentHealth>0)
             {
                 transform.LookAt(hitColliders[i].transform.position);
-                hitColliders[i].GetComponent<EnemysScript>().AddDamage(damage);
+                //hitColliders[i].GetComponent<EnemysScript>().AddDamage(damage);
                 shotEffect.Play();
                 shotAudio.Play();
                 break;

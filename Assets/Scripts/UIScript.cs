@@ -74,61 +74,6 @@ public class UIScript : MonoBehaviour
         speedUpdateButton.interactable = false;
         powerUpdateButton.interactable = false;
     } 
-    public void updateParam(int paramIndex)
-    {
-        switch (paramIndex)
-        {
-            case 1:
-                gm.setDefenderParam(1, 0, 0);
-                break;
-            case 2:
-                gm.setDefenderParam(0, 1, 0);
-                break;
-            case 3:
-                gm.setDefenderParam(0, 0, 1);
-                break;
-        }
-        gm.sounds.click.Play();
-    }
-    public void NextDefenderBuild(int idx)
-    {
-        gm.BuildNewDefender(idx);
-        gm.sounds.click.Play();
-    }
-    public void PauseButton()
-    {
-        gm.Pause();
-        gm.sounds.click.Play();
-    }
-    public void Again()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        gm.sounds.click.Play();
-    }
-    public void MainMenu()
-    {
-        SceneManager.LoadScene(0);
-        gm.Pause();
-        gm.sounds.click.Play();
-    }
-    public void soundsVolume()
-    {
-        gm.setVolumeSounds();
-        gm.sounds.click.Play();
-    }
-    public void ChangeSpeedGame()
-    {
-        float speedGame = speedSlider.value;
-        if (speedGame == 0)
-        {
-            gm.setSpeedGame(1);
-            speedGameText.text = "x1";
-        }
-        else
-        {
-            gm.setSpeedGame(speedGame * 2);
-            speedGameText.text = "x"+(speedGame*2).ToString();
-        }
-    }
+   
 
 }

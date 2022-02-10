@@ -15,6 +15,7 @@ public class ControlScript : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
+            Debug.Log(Input.touchCount);
             Touch touch = Input.GetTouch(0);
             gm.onToutchEvent(touch.position);
         }

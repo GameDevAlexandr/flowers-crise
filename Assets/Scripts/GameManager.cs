@@ -8,20 +8,31 @@ using static Difficulty;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject greenHouse;
+    [SerializeField] private GameObject market;
+    [SerializeField] private GameObject promotionTower;
+    [SerializeField] private GameObject shoper;
+    [SerializeField] private GameObject richShoper;
+    [SerializeField] private GameObject wholesaler;
     private TowerScript selectedTower;
     public void onToutchEvent(Vector3 position)
     {
+
         RaycastHit rcHit = new RaycastHit();
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out rcHit) && !EventSystem.current.IsPointerOverGameObject())
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(position), out rcHit))
         {
-             
+            Debug.Log(rcHit.transform.tag);
             if (rcHit.transform.tag == "Tower")
             {
+                if(selectedTower!=null && selectedTower.transform != rcHit.transform)
+                {
+                    selectedTower.ActivateUI(false);
+                }
                 selectedTower = rcHit.transform.GetComponent<TowerScript>();
                 selectedTower.ActivateUI(true);
             }
-            else if (selectedTower != null)
-            {
+            else if (selectedTower != null && !EventSystem.current.IsPointerOverGameObject())
+            {                
                 selectedTower.ActivateUI(false);
             }
         }

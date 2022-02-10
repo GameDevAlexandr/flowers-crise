@@ -35,40 +35,40 @@ public class EnemysScript : MonoBehaviour
     {
         
     }
-    public void AddDamage(int redF, int blueF, int YellowF)
-    {
-        if (currentHealth > 0)
-        {
-            currentHealth -= damage;
-            healthIco.fillAmount = currentHealth / maxHealth;
-            damageEffect.startSize = 5 + damage/5;
-            damageEffect.Play();
-            if (currentHealth <= maxHealth / 2)
-            {
-                smokeEffect.Play();
-            }
-        }
-        if(currentHealth<=0)
-        {
-            Death();
-        }
-    }
-    private void Death()
-    {
-        explosionEffect.Play();
-        gm.setCredits(priceOfDeath);
-        gm.killsCounter++;
-        Debug.Log(gm.killsCounter);
-        gm.sounds.explosion.Play();
-        Destroy(gameObject, 1);        
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "EnemyFinish")
-        {
-            gm.DamageToBase(currentHealth);
-            Destroy(gameObject);
-        }
-        
-    }
+    //public void AddDamage(int redF, int blueF, int YellowF)
+    //{
+    //    if (currentHealth > 0)
+    //    {
+    //        currentHealth -= damage;
+    //        healthIco.fillAmount = currentHealth / maxHealth;
+    //        damageEffect.startSize = 5 + damage/5;
+    //        damageEffect.Play();
+    //        if (currentHealth <= maxHealth / 2)
+    //        {
+    //            smokeEffect.Play();
+    //        }
+    //    }
+    //    if(currentHealth<=0)
+    //    {
+    //        Death();
+    //    }
+    //}
+    //private void Death()
+    //{
+    //    explosionEffect.Play();
+    //    gm.setCredits(priceOfDeath);
+    //    gm.killsCounter++;
+    //    Debug.Log(gm.killsCounter);
+    //    gm.sounds.explosion.Play();
+    //    Destroy(gameObject, 1);        
+    //}
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.tag == "EnemyFinish")
+    //    {
+    //        gm.DamageToBase(currentHealth);
+    //        Destroy(gameObject);
+    //    }
+
+    //}
 }
