@@ -12,13 +12,15 @@ public class TowerScript : MonoBehaviour
     [SerializeField] private int priceOfUpgrade;
     [SerializeField] private int priceOfBoost;
     [SerializeField] private float boostTime;
-    [SerializeField] private float speedAttack;
-    [SerializeField] private float radius;
+    public float speed;
+    public float radius;
+    public ParticleSystem radiusSphere;
     // Start is called before the first frame update
     void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         boostOn = false;
+        setRadius();
     }
 
     // Update is called once per frame
@@ -62,5 +64,9 @@ public class TowerScript : MonoBehaviour
             boostOn = false;
         }
     }
-
+    public void setRadius()
+    {
+        ParticleSystem.ShapeModule shape = radiusSphere.shape;
+        shape.radius = radius;
+    }
 }

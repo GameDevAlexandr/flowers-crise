@@ -14,7 +14,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject shoper;
     [SerializeField] private GameObject richShoper;
     [SerializeField] private GameObject wholesaler;
+    [SerializeField] private int moneyCount;
+    [SerializeField] private int pagesCount;
+    private UIScript ui;
     private TowerScript selectedTower;
+    private void Start()
+    {
+        ui = GameObject.Find("UI").GetComponent<UIScript>();
+        ui.moneyText.text = moneyCount.ToString();
+        ui.pagesText.text = pagesCount.ToString();
+    }
     public void onToutchEvent(Vector3 position)
     {
 
@@ -36,5 +45,15 @@ public class GameManager : MonoBehaviour
                 selectedTower.ActivateUI(false);
             }
         }
+    }
+    public void AddMoney(int money)
+    {
+        moneyCount += money;
+        ui.moneyText.text = moneyCount.ToString();
+    }
+    public void FlipPage(int count)
+    {
+        pagesCount -= count;
+        ui.pagesText.text = pagesCount.ToString();
     }
 }

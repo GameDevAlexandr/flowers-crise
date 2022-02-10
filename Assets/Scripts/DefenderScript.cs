@@ -49,7 +49,7 @@ public class DefenderScript : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
         for (int i = 0; i < hitColliders.Length; i++)
         {    
-            if(hitColliders[i].tag == "Enemy"&& hitColliders[i].GetComponent<EnemysScript>().currentHealth>0)
+            if(hitColliders[i].tag == "Enemy")//&& hitColliders[i].GetComponent<EnemysScript>().currentHealth>0)
             {
                 transform.LookAt(hitColliders[i].transform.position);
                 //hitColliders[i].GetComponent<EnemysScript>().AddDamage(damage);
