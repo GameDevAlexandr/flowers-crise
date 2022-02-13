@@ -6,18 +6,20 @@ using UnityEngine.UI;
 
 public class EnemysScript : MonoBehaviour
 {
+    private int[] maxFlowersType;
     private NavMeshAgent agent;
     private GameManager gm;
     private GameObject[] target;
     [SerializeField] private int priceOfSatisfy;
+    [SerializeField] private float speed;
     [SerializeField] private Image[] UIflowers;
     public int[] flowersTypeNeed;
-    private int[] maxFlowersType; 
     public bool isSatisfy;
     void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>(); 
         agent = GetComponent<NavMeshAgent>();
+        agent.speed = speed;
         target = GameObject.FindGameObjectsWithTag("EnemyFinish");
         int targetIndex = Random.Range(0, target.Length);
         agent.destination = target[targetIndex].transform.position;
@@ -49,6 +51,10 @@ public class EnemysScript : MonoBehaviour
             isSatisfy = true;
             gm.AddMoney(priceOfSatisfy);
         }
+    }
+    public void Freeze()
+    {
+        agent.speed = 0;
     }
     private void OnTriggerEnter(Collider other)
     {

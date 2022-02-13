@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Tower
   - EnemyFinish
+  - Levels
   layers:
   - Default
   - TransparentFX

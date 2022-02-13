@@ -59,14 +59,20 @@
     <Compile Include="Assets\Scripts\Difficulty.cs" />
     <Compile Include="Assets\Scripts\ControlScript.cs" />
     <Compile Include="Assets\Scripts\EnemysScript.cs" />
-    <Compile Include="Assets\Scripts\LookAt.cs" />
+    <Compile Include="Assets\Scripts\UiScripts\LookAt.cs" />
+    <Compile Include="Assets\Scripts\TowersScropts\EmptyForBuildScript.cs" />
+    <Compile Include="Assets\Scripts\TowersScropts\TowerUIScript.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\DefenderScript.cs" />
-    <Compile Include="Assets\Scripts\TowerScript.cs" />
-    <Compile Include="Assets\Scripts\StartMenuScript.cs" />
-    <Compile Include="Assets\Scripts\UIScript.cs" />
+    <Compile Include="Assets\Scripts\TowersScropts\FlowersMarketScript.cs" />
+    <Compile Include="Assets\Scripts\TowersScropts\TowerScript.cs" />
+    <Compile Include="Assets\Scripts\UiScripts\StartMenuScript.cs" />
+    <Compile Include="Assets\Scripts\UiScripts\UIScript.cs" />
+    <Compile Include="Assets\Scripts\ChangeLevelScript.cs" />
+    <Compile Include="Assets\Scripts\GameDataScript.cs" />
     <Compile Include="Assets\Scripts\SoundsCript.cs" />
-    <Compile Include="Assets\Scripts\FlowersMarketScript.cs" />
+    <Compile Include="Assets\Scripts\SpawnScript.cs" />
+    <Compile Include="Assets\Scripts\ArrayScript.cs" />
+    <Compile Include="Assets\Scripts\TowersScropts\GreenHouseScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -671,13 +677,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="NavMeshComponents.csproj">
-      <Project>{10EB046B-C39A-F048-BA70-641EA0FF74E1}</Project>
-      <Name>NavMeshComponents</Name>
-    </ProjectReference>
     <ProjectReference Include="NavMeshComponentsEditor.csproj">
       <Project>{B156A65C-7209-721F-3137-4A2D6DE552F6}</Project>
       <Name>NavMeshComponentsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponents.csproj">
+      <Project>{10EB046B-C39A-F048-BA70-641EA0FF74E1}</Project>
+      <Name>NavMeshComponents</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

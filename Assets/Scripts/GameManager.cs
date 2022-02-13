@@ -4,20 +4,19 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using static Difficulty;
+using static GameDataScript;
 
 public class GameManager : MonoBehaviour
 {
+    private UIScript ui;
+    private TowerUIScript selectedTower;
+    [SerializeField] private int pagesCount;
     [SerializeField] private GameObject greenHouse;
     [SerializeField] private GameObject market;
     [SerializeField] private GameObject promotionTower;
-    [SerializeField] private GameObject shoper;
-    [SerializeField] private GameObject richShoper;
-    [SerializeField] private GameObject wholesaler;
-    [SerializeField] private int moneyCount;
-    [SerializeField] private int pagesCount;
-    private UIScript ui;
-    private TowerScript selectedTower;
+    [SerializeField] private AudioMixerGroup audioMixer;
+    public GameObject emptyForTower;
+    public int moneyCount;
     private void Start()
     {
         ui = GameObject.Find("UI").GetComponent<UIScript>();
@@ -37,7 +36,7 @@ public class GameManager : MonoBehaviour
                 {
                     selectedTower.ActivateUI(false);
                 }
-                selectedTower = rcHit.transform.GetComponent<TowerScript>();
+                selectedTower = rcHit.transform.GetComponent<TowerUIScript>();
                 selectedTower.ActivateUI(true);
             }
             else if (selectedTower != null && !EventSystem.current.IsPointerOverGameObject())
@@ -55,5 +54,10 @@ public class GameManager : MonoBehaviour
     {
         pagesCount -= count;
         ui.pagesText.text = pagesCount.ToString();
+    }
+    public void SetAudioVolume()
+    {
+        audioMixer.audioMixer.SetFloat("Music", musicVolume);
+        audioMixer.audioMixer.SetFloat("Sounds", soundVolume);
     }
 }
