@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class FlowersMarketScript : MonoBehaviour
 {
+    public GameObject bulletObject;
+    [SerializeField] private float bulletSpeed;
+    public int SellerType;
+    public float speed;
+    public float radius;
+    public int dropCountFlowers;
+    public int priceUpgrade;
     private TowerScript ts;
-    [SerializeField] private int maxFlowers;
-    [SerializeField] private int[] flowersType;
-    [SerializeField] private int dropCountFlowers;
     private float timeBetweenShot;
     private float lastShotTime;
-    private bool boostOn;
-    // Start is called before the first frame update
+    [HideInInspector] public BulletScript bullet;
     void Start()
     {
-        ts = GetComponent<TowerScript>();
-        timeBetweenShot = 60 / ts.speed;
-        boostOn = false;
+        ts = GetComponentInParent<TowerScript>();
+        timeBetweenShot = 60 / speed;
+        bulletObject = GameObject.Instantiate(bulletObject,transform.position,Quaternion.identity);
+        bullet = bulletObject.GetComponent<BulletScript>();
+        bullet.speed = bulletSpeed;
+        bulletObject.SetActive(false);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if(Time.time - lastShotTime > timeBetweenShot)
@@ -27,33 +33,11 @@ public class FlowersMarketScript : MonoBehaviour
             DropFlowers();
             lastShotTime = Time.time;
         }
-        if (!boostOn && ts.boostOn)
-        {
-            boostOn = true;
-            Boosting(true);
-        }
-        if (!ts.boostOn)
-        {
-            boostOn = false;
-            Boosting(false);
-        }
     }
-    public void GetFlowers(int index, int count)
-    {
-        int flowersCounter = 0;
-        for (int i = 0; i < flowersType.Length; i++)
-        {
-            flowersCounter += flowersType[i];
-        }
-        if (count > maxFlowers - flowersCounter)
-        {
-            count = maxFlowers - flowersCounter;
-        }
-        flowersType[index] += count;
-    }
+
     private void DropFlowers()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, ts.radius);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
         for (int i = 0; i < hitColliders.Length; i++)
         {
             EnemysScript es = hitColliders[i].GetComponent<EnemysScript>();
@@ -61,17 +45,23 @@ public class FlowersMarketScript : MonoBehaviour
             {
                 for (int j = 0; j < es.flowersTypeNeed.Length; j++)
                 {
-                    if (flowersType[j] >= dropCountFlowers && es.flowersTypeNeed[j] > 0)
+                    if (ts.bulletTypeCount[j] >= dropCountFlowers && es.flowersTypeNeed[j] > 0)
                     {
-                        es.AddFlowers(dropCountFlowers, j);
-                        flowersType[j] -= dropCountFlowers;
-                        break;
-                    }
+                        if (SellerType == j)
+                        {
+                            bullet.shot(hitColliders[i].transform.position, j);
+                            bullet.gameObject.SetActive(true);
+                            es.AddFlowers(dropCountFlowers, j);
+                            ts.AddFlowers(j, -dropCountFlowers);
+                            break;
+                        }
+                    }                    
                 }
+                break;
             }
         }
     }
-    public void Boosting(bool active)
+    public void Upgrade()
     {
 
     }

@@ -4,105 +4,87 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class TowerScript : MonoBehaviour
-{  
-    private GameManager gm;
-    private float boostTimer;
-    private float boostReloadTimer;
-    private Text bTimertext;
-    [SerializeField] private GameObject upgradeTower;
-    [SerializeField] private Button boostButton;
-    [SerializeField] private Button upgradeButton;
-    [SerializeField] private Text destroyText;
-    [SerializeField] private int priceOfUpgrade;
-    [SerializeField] private int sellPrise;
-    [SerializeField] private float boostTime;
-    [SerializeField] private float boostReloadTime;
-    public Sprite towerIco;
-    public int priceTower;
-    public float speed;
-    public float radius;
+{
     public ParticleSystem radiusSphere;
-    public bool boostOn;
-    // Start is called before the first frame update
+    public int[] bulletTypeCount;
+    public int[] maxBulletTypeCount;
+    [SerializeField] private GameObject[] sellersObject;
+    [SerializeField] private int maxFlowers;
+    [SerializeField] private int[] sellerUpgradePrice;
+    private GameManager gm;
+    private UIItem ui;
+    private FlowersMarketScript[] sellers;
     void Start()
     {
-        boostButton.interactable = false;
-        bTimertext = boostButton.GetComponentInChildren<Text>();
-        upgradeButton.GetComponentInChildren<Text>().text = priceOfUpgrade.ToString();
+        sellers = new FlowersMarketScript[sellersObject.Length];
+        ui = GetComponent<UIItem>();
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        destroyText.text = sellPrise.ToString();
-        boostOn = false;
+        for (int i = 0; i < sellers.Length; i++)
+        {
+            sellers[i] = sellersObject[i].GetComponent<FlowersMarketScript>();
+            ui.upgradeSellerText[i].text = sellers[i].priceUpgrade.ToString();
+        }
+        for (int i = 0; i < maxBulletTypeCount.Length; i++)
+        {
+            ui.flowrCounters[i].fillAmount = 1 / (float)maxBulletTypeCount[i] * bulletTypeCount[i];
+        }
         setRadius();
-        boostReloadTimer = Time.time;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //boosters
-        if (boostOn)
+        for (int i = 0; i < 3; i++)
         {
-            bTimertext.text = ((int)(boostTime - (Time.time - boostTimer))).ToString();
-            if (Time.time - boostTimer > boostTime)
+            if (ui.upgradeSellers[i].gameObject.activeSelf)
             {
-                BoostActivate(false);
+                if (int.Parse(ui.upgradeSellerText[i].text) <= gm.moneyCount)
+                {
+                    ui.upgradeSellers[i].interactable = true;
+                }
+                else
+                {
+                    ui.upgradeSellers[i].interactable = false;
+                }
             }
-        }
-        else
-        {
-            int timer = (int)(boostReloadTime - (Time.time - boostReloadTimer));
-            if (timer >= 0)
+            if (i<2&& ui.addSellers[i].gameObject.activeSelf)
             {
-                bTimertext.text = ((int)(boostReloadTime - (Time.time - boostReloadTimer))).ToString();
+                if (int.Parse(ui.addSellerText[i].text) <= gm.moneyCount)
+                {
+                    ui.addSellers[i].interactable = true;
+                }
+                else
+                {
+                    ui.addSellers[i].interactable = false;
+                }
             }
-            if (Time.time - boostReloadTimer > boostReloadTime)
-            {
-                boostButton.interactable = true;
-            }
-        }
-        //activate/diactivate upgrade button
-        if (gm.moneyCount >= priceOfUpgrade)
-        {
-            upgradeButton.interactable = true;
-        }
-        else
-        {
-            upgradeButton.interactable = false;
         }
     }
-    public void UpgradeTower()
+    public void AddSellers(int index)
     {
-        GameObject newTower = GameObject.Instantiate(upgradeTower);
-        newTower.transform.position = transform.position;
-        gm.AddMoney(-priceOfUpgrade);
-        Destroy(gameObject);
+        sellers[index].gameObject.SetActive(true);
     }
-    public void BoostActivate(bool active)
+    public void UpgadeSeller(int index)
     {
-        if (active)
-        {
-            boostOn = true;
-            boostTimer = Time.time;
-            boostButton.interactable = false;
-            //boooost!
-        }
-        else
-        {
-            boostOn = false;
-            boostReloadTimer = Time.time;
-        }
-        
+        gm.AddMoney(-sellers[index].priceUpgrade);
+        sellers[index].speed *= 1.5f;
+        sellers[index].priceUpgrade *= 2;
+        ui.upgradeSellerText[index].text = sellers[index].priceUpgrade.ToString();
+    }
+    public void AddBascet(int index)
+    {
+        maxBulletTypeCount[index] += maxFlowers;
     }
     public void setRadius()
     {
-        ParticleSystem.ShapeModule shape = radiusSphere.shape;
-        shape.radius = radius;
+         ParticleSystem.ShapeModule shape =  radiusSphere.shape;
     }
-    public void DestroyTower()
+    public void AddFlowers(int index, int count)
     {
-        gm.AddMoney(sellPrise);
-        GameObject empty = GameObject.Instantiate(gm.emptyForTower);
-        empty.transform.position = transform.position;
-        Destroy(gameObject);
+        bulletTypeCount[index] += count;
+        if (bulletTypeCount[index] > maxBulletTypeCount[index])
+        {
+            bulletTypeCount[index] = maxBulletTypeCount[index];
+        }
+        ui.flowrCounters[index].fillAmount = 1 / (float)maxBulletTypeCount[index] * bulletTypeCount[index];
     }
 }

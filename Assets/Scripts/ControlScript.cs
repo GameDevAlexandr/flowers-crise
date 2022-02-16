@@ -5,6 +5,7 @@ using UnityEngine;
 public class ControlScript : MonoBehaviour
 {
     private GameManager gm;
+    private bool touches;
     void Start()
     {
         gm = GetComponent<GameManager>(); 
@@ -17,7 +18,7 @@ public class ControlScript : MonoBehaviour
         {
             Debug.Log(Input.touchCount);
             Touch touch = Input.GetTouch(0);
-            gm.onToutchEvent(touch.position);
+            gm.onToutchEvent(touch.position, touch.phase);
         }
     }
 }

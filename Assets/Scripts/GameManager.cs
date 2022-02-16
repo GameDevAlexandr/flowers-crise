@@ -23,13 +23,12 @@ public class GameManager : MonoBehaviour
         ui.moneyText.text = moneyCount.ToString();
         ui.pagesText.text = pagesCount.ToString();
     }
-    public void onToutchEvent(Vector3 position)
+    public void onToutchEvent(Vector3 position, TouchPhase touchPhase)
     {
 
         RaycastHit rcHit = new RaycastHit();
         if (Physics.Raycast(Camera.main.ScreenPointToRay(position), out rcHit))
         {
-            Debug.Log(rcHit.transform.tag);
             if (rcHit.transform.tag == "Tower")
             {
                 if(selectedTower!=null && selectedTower.transform != rcHit.transform)
@@ -42,6 +41,7 @@ public class GameManager : MonoBehaviour
             else if (selectedTower != null && !EventSystem.current.IsPointerOverGameObject())
             {                
                 selectedTower.ActivateUI(false);
+                Debug.Log(rcHit.transform.name);
             }
         }
     }

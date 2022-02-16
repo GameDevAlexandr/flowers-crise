@@ -91,7 +91,7 @@ GameObject:
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Enemy
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
@@ -103,7 +103,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29695130839647536}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -57.08, y: 1, z: 4.3}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8507634505060408413}
@@ -123,13 +123,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e7954d7ac1d17469702b76d2dcc156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priceOfSatisfy: 0
-  speed: 5
+  priceOfSatisfy: 15
+  speed: 4
   UIflowers:
   - {fileID: 29695130842268403}
   - {fileID: 29695129462771523}
   - {fileID: 29695131027039011}
-  flowersTypeNeed: 030000000300000003000000
+  flowersTypeNeed: 0300000003000000
   isSatisfy: 0
 --- !u!195 &29695130839647543
 NavMeshAgent:
@@ -140,7 +140,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 29695130839647536}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5000001
+  m_Radius: 0.89
   m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -149,8 +149,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
+  m_Height: 3.4
+  m_BaseOffset: 1.77
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!54 &29695130839647529
@@ -471,7 +471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 39585308ac403a445b8114908715f42a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.93
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 39585308ac403a445b8114908715f42a, type: 3}
       propertyPath: m_LocalPosition.z
