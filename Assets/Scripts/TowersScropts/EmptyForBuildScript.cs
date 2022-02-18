@@ -43,6 +43,11 @@ public class EmptyForBuildScript : MonoBehaviour
         if (towersType[towerNumber].name != "GreenHouse")
         {
             gm.marketInScene.Add(newBuild.GetComponent<FlowersMarketScript>());
+            gm.updateTowers();
+        }
+        else
+        {
+            gm.greenHouseinScene.Add(newBuild.GetComponent<GreenHouseScript>());
         }
         Destroy(gameObject);
     }

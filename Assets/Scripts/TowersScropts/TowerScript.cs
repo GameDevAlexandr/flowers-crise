@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class TowerScript : MonoBehaviour
-{  
-    private GameManager gm;
+{      
     private float boostTimer;
     private float boostReloadTimer;
     private Text bTimertext;
@@ -17,6 +16,7 @@ public class TowerScript : MonoBehaviour
     [SerializeField] private int sellPrise;
     [SerializeField] private float boostTime;
     [SerializeField] private float boostReloadTime;
+    [HideInInspector] public GameManager gm;
     public Sprite towerIco;
     public int priceTower;
     public float speed;

@@ -11,16 +11,15 @@ public class GameManager : MonoBehaviour
     private UIScript ui;
     private TowerUIScript selectedTower;
     [SerializeField] private int pagesCount;
-    [SerializeField] private GameObject greenHouse;
-    [SerializeField] private GameObject market;
-    [SerializeField] private GameObject promotionTower;
     [SerializeField] private AudioMixerGroup audioMixer;
     public GameObject emptyForTower;
     public int moneyCount;
     [HideInInspector] public List<FlowersMarketScript> marketInScene;
+    [HideInInspector] public List<GreenHouseScript> greenHouseinScene;
     private void Start()
     {
         marketInScene = new List<FlowersMarketScript>();
+        greenHouseinScene = new List<GreenHouseScript>();
         ui = GameObject.Find("UI").GetComponent<UIScript>();
         ui.moneyText.text = moneyCount.ToString();
         ui.pagesText.text = pagesCount.ToString();
@@ -31,7 +30,6 @@ public class GameManager : MonoBehaviour
         RaycastHit rcHit = new RaycastHit();
         if (Physics.Raycast(Camera.main.ScreenPointToRay(position), out rcHit))
         {
-            Debug.Log(rcHit.transform.tag);
             if (rcHit.transform.tag == "Tower")
             {
                 if(selectedTower!=null && selectedTower.transform != rcHit.transform)
@@ -65,5 +63,15 @@ public class GameManager : MonoBehaviour
     {
         audioMixer.audioMixer.SetFloat("Music", musicVolume);
         audioMixer.audioMixer.SetFloat("Sounds", soundVolume);
+    }
+    public void updateTowers()
+    {
+        if (greenHouseinScene.Count != 0)
+        {
+            for (int i = 0; i < greenHouseinScene.Count; i++)
+            {
+                greenHouseinScene[i].GetTowers();
+            }
+        }
     }
 }

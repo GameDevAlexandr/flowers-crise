@@ -39,7 +39,6 @@ public class FlowerScript : MonoBehaviour
                     flowers[i].SetActive(false);
                 }                
                 path = 0;
-                Debug.Log("shot");
             }
         }
     }

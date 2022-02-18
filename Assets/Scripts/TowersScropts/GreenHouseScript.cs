@@ -5,33 +5,29 @@ using UnityEngine.UI;
 
 public class GreenHouseScript : MonoBehaviour
 {
-    [HideInInspector] public Vector3 neededPosition;
+    public Vector3 neededPosition;
+    public int needFlower;
     [SerializeField] private int workersCount;
     [SerializeField] private GameObject worker;
     private TowerScript ts;
-    private GameObject[] workers;
-    private WorkerScript[] ws;
+    private bool firstWorkerIsCreate;
     private List<FlowersMarketScript> markets;
+    public FlowersMarketScript flowerMarket;
     private GameManager gm;
 
     void Start()
     {
-        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        firstWorkerIsCreate = false;
         markets = new List<FlowersMarketScript>();
-        workers = new GameObject[workersCount];
-        for (int i = 0; i < workersCount; i++)
-        {
-            workers[i] = GameObject.Instantiate(worker, transform.position, Quaternion.identity);
-            ws[i] = workers[i].GetComponent<WorkerScript>();
-        }
         ts = GetComponent<TowerScript>();
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gm.updateTowers();
     }
 
     // Update is called once per frame
     void Update()
     {
         int needItem = 10000;
-        FlowersMarketScript fms = new FlowersMarketScript();
         if (markets.Count != 0)
         {
             for (int i = 0; i < markets.Count; i++)
@@ -40,15 +36,26 @@ public class GreenHouseScript : MonoBehaviour
                 if (item < needItem)
                 {
                     needItem = item;
-                    fms = markets[i];
+                    needFlower = markets[i].needFlowerType;
+                    neededPosition = markets[i].transform.position;
+                    flowerMarket = markets[i];
                 }
             }
-            neededPosition = fms.transform.position;
+            if (!firstWorkerIsCreate)
+            {
+                GameObject newWorker = GameObject.Instantiate(worker, transform.position, Quaternion.identity);
+                WorkerScript ws = newWorker.GetComponent<WorkerScript>();
+                ws.StartWorker(gameObject);
+                firstWorkerIsCreate = true;
+            }
         }
     }
-    private void GetTowers()
+    public void GetTowers()
     {
-        markets.Clear();
+        if (markets.Count != 0)
+        {
+            markets.Clear();
+        }
         for (int i = 0; i <gm.marketInScene.Count ; i++)
         {
             if (Mathf.Abs(Vector3.Distance(transform.position, gm.marketInScene[i].transform.position)) <= ts.radius)

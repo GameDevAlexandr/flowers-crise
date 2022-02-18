@@ -81,6 +81,10 @@ public class FlowersMarketScript : MonoBehaviour
             }
         }
     }
+    public void SetNeededFlower(int flowerNeed)
+    {
+        needFlowerType = flowerNeed;
+    }
     public void Boosting(bool active)
     {
 
