@@ -4,28 +4,34 @@ using UnityEngine;
 
 public class FlowersMarketScript : MonoBehaviour
 {
-    public GameObject bulletObject;
-    [SerializeField] private float bulletSpeed;
-    public int SellerType;
-    public float speed;
-    public float radius;
-    public int dropCountFlowers;
-    public int priceUpgrade;
+    public int needFlowerType;
+    public int[] flowersType;
     private TowerScript ts;
+    [SerializeField] private int[] maxFlowers;
+    [SerializeField] private int dropCountFlowers;
+    [SerializeField] GameObject shotElement;
+    [SerializeField] Transform[] firePosition;
+    private FlowerScript bullet;
     private float timeBetweenShot;
     private float lastShotTime;
-    [HideInInspector] public BulletScript bullet;
+    private bool boostOn;
+    private TowerUIScript tUI;
+    // Start is called before the first frame update
     void Start()
     {
-        ts = GetComponentInParent<TowerScript>();
-        timeBetweenShot = 60 / speed;
-        bulletObject = GameObject.Instantiate(bulletObject,transform.position,Quaternion.identity);
-        bullet = bulletObject.GetComponent<BulletScript>();
-        bullet.speed = bulletSpeed;
-        bulletObject.SetActive(false);
+        tUI = GetComponent<TowerUIScript>();
+        shotElement = GameObject.Instantiate(shotElement, transform.position, Quaternion.identity);
+        bullet = shotElement.GetComponent<FlowerScript>();
+        ts = GetComponent<TowerScript>();
+        timeBetweenShot = 60 / ts.speed;
+        boostOn = false;
+        for (int i = 0; i < tUI.flowersCounters.Length; i++)
+        {
+            tUI.flowersCounters[i].fillAmount =  1 / (float)maxFlowers[i] * flowersType[i];
+        }
     }
 
-
+    // Update is called once per frame
     void Update()
     {
         if(Time.time - lastShotTime > timeBetweenShot)
@@ -33,11 +39,29 @@ public class FlowersMarketScript : MonoBehaviour
             DropFlowers();
             lastShotTime = Time.time;
         }
+        if (!boostOn && ts.boostOn)
+        {
+            boostOn = true;
+            Boosting(true);
+        }
+        if (!ts.boostOn)
+        {
+            boostOn = false;
+            Boosting(false);
+        }
     }
-
+    public void GetFlowers(int index, int count)
+    {
+        if (flowersType[index] + count > maxFlowers[index])
+        {
+            count = maxFlowers[index] - flowersType[index];
+        }
+        flowersType[index] += count;
+        tUI.flowersCounters[index].fillAmount = 1 / (float)maxFlowers[index] * flowersType[index];
+    }
     private void DropFlowers()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, ts.radius);
         for (int i = 0; i < hitColliders.Length; i++)
         {
             EnemysScript es = hitColliders[i].GetComponent<EnemysScript>();
@@ -45,23 +69,19 @@ public class FlowersMarketScript : MonoBehaviour
             {
                 for (int j = 0; j < es.flowersTypeNeed.Length; j++)
                 {
-                    if (ts.bulletTypeCount[j] >= dropCountFlowers && es.flowersTypeNeed[j] > 0)
+                    if (flowersType[j] >= dropCountFlowers && es.flowersTypeNeed[j] > 0)
                     {
-                        if (SellerType == j)
-                        {
-                            bullet.shot(hitColliders[i].transform.position, j);
-                            bullet.gameObject.SetActive(true);
-                            es.AddFlowers(dropCountFlowers, j);
-                            ts.AddFlowers(j, -dropCountFlowers);
-                            break;
-                        }
-                    }                    
+                        bullet.Shot(firePosition[j].position, es.transform.position, j);
+                        es.AddFlowers(dropCountFlowers, j);
+                        GetFlowers(j, -dropCountFlowers);
+                        break;
+                    }
                 }
                 break;
             }
         }
     }
-    public void Upgrade()
+    public void Boosting(bool active)
     {
 
     }

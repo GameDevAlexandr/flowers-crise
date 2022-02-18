@@ -56,17 +56,14 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\CharactersScript\CourierScript.cs" />
     <Compile Include="Assets\Scripts\Difficulty.cs" />
     <Compile Include="Assets\Scripts\ControlScript.cs" />
-    <Compile Include="Assets\Scripts\CharactersScript\EnemysScript.cs" />
-    <Compile Include="Assets\Scripts\CharactersScript\SpawnScript.cs" />
+    <Compile Include="Assets\Scripts\EnemysScript.cs" />
+    <Compile Include="Assets\Scripts\SpawnScript.cs" />
     <Compile Include="Assets\Scripts\UiScripts\LookAt.cs" />
     <Compile Include="Assets\Scripts\TowersScropts\EmptyForBuildScript.cs" />
     <Compile Include="Assets\Scripts\TowersScropts\TowerUIScript.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\TowersScropts\UIItem.cs" />
-    <Compile Include="Assets\Scripts\TowersScropts\BulletScript.cs" />
     <Compile Include="Assets\Scripts\TowersScropts\GreenHouseScript.cs" />
     <Compile Include="Assets\Scripts\TowersScropts\FlowersMarketScript.cs" />
     <Compile Include="Assets\Scripts\TowersScropts\TowerScript.cs" />
@@ -76,6 +73,8 @@
     <Compile Include="Assets\Scripts\ArrayScript.cs" />
     <Compile Include="Assets\Scripts\GameDataScript.cs" />
     <Compile Include="Assets\Scripts\SoundsCript.cs" />
+    <Compile Include="Assets\Scripts\TowersScropts\WorkerScript.cs" />
+    <Compile Include="Assets\Scripts\TowersScropts\FlowerScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

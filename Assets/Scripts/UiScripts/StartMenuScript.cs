@@ -21,7 +21,7 @@ public class StartMenuScript : MonoBehaviour
     }
     public void setDifficulty()
     {
-        difficulty = (int)difficultySlider.value;
+        //difficulty = (int)difficultySlider.value;
     }
     public void StartGameButton()
     {

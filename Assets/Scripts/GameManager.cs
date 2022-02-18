@@ -17,18 +17,21 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioMixerGroup audioMixer;
     public GameObject emptyForTower;
     public int moneyCount;
+    [HideInInspector] public List<FlowersMarketScript> marketInScene;
     private void Start()
     {
+        marketInScene = new List<FlowersMarketScript>();
         ui = GameObject.Find("UI").GetComponent<UIScript>();
         ui.moneyText.text = moneyCount.ToString();
         ui.pagesText.text = pagesCount.ToString();
     }
-    public void onToutchEvent(Vector3 position, TouchPhase touchPhase)
+    public void onToutchEvent(Vector3 position)
     {
 
         RaycastHit rcHit = new RaycastHit();
         if (Physics.Raycast(Camera.main.ScreenPointToRay(position), out rcHit))
         {
+            Debug.Log(rcHit.transform.tag);
             if (rcHit.transform.tag == "Tower")
             {
                 if(selectedTower!=null && selectedTower.transform != rcHit.transform)
@@ -41,7 +44,6 @@ public class GameManager : MonoBehaviour
             else if (selectedTower != null && !EventSystem.current.IsPointerOverGameObject())
             {                
                 selectedTower.ActivateUI(false);
-                Debug.Log(rcHit.transform.name);
             }
         }
     }
@@ -54,6 +56,10 @@ public class GameManager : MonoBehaviour
     {
         pagesCount -= count;
         ui.pagesText.text = pagesCount.ToString();
+        if (pagesCount <= 0)
+        {
+            ui.losePanel.SetActive(true);
+        }
     }
     public void SetAudioVolume()
     {
