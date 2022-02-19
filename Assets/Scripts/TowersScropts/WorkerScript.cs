@@ -42,11 +42,11 @@ public class WorkerScript : MonoBehaviour
                     flowerType = gh.needFlower;
                     flowerImage.gameObject.SetActive(true);
                     flowerImage.sprite = flowersIco[flowerType];
+                    targetMarket = gh.flowerMarket;
                     toMarket = true;
                 }
 
             }
-            Debug.Log(agent.remainingDistance);
         }
     }
     public void StartWorker(GameObject meTower)

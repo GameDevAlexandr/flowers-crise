@@ -9,6 +9,8 @@ public class SpawnScript : MonoBehaviour
     [SerializeField] private float timeBetweenWaves;
     [SerializeField] private float timeBetweenShopers;
     [SerializeField] private Transform spawnPoint;
+    [SerializeField] private Transform[] pathElements;
+    [SerializeField] private float spreadIndex;
     private List<List<GameObject>> shopersWithWave;
     private List<GameObject> enemisForSpawn;
     private int waveNumber;
@@ -18,10 +20,6 @@ public class SpawnScript : MonoBehaviour
     private bool startWave;
     void Start()
     {
-        for (int i = 0; i < shopers.Length; i++)
-        {
-            shopers[i].SetActive(false);
-        }
         enemisForSpawn = new List<GameObject>();
         shopersWithWave = new List<List<GameObject>>();
         for (int i = 0; i < spawnScheme.wive.Length; i++)
@@ -31,7 +29,20 @@ public class SpawnScript : MonoBehaviour
                 for (int idx = 0; idx < spawnScheme.wive[i].mobs[j] + 1; idx++)
                 {
                     shopersWithWave.Add(new List<GameObject>());
-                    shopersWithWave[i].Add(GameObject.Instantiate(shopers[j]));
+                    GameObject newObject = GameObject.Instantiate(shopers[j]);
+                    shopersWithWave[i].Add(newObject);
+                    float spreadX = Random.Range(-spreadIndex, spreadIndex);
+                    float spreadY = Random.Range(-spreadIndex, spreadIndex);
+                    EnemysScript es = newObject.GetComponent<EnemysScript>();
+                    for (int k = 0; k < pathElements.Length; k++)
+                    {
+                        Vector3 positions = pathElements[k].position;
+                        positions.x += spreadX;
+                        positions.z += spreadY;
+                        es.pathElemeents.Add(positions);
+                    }
+                    newObject.transform.position = es.pathElemeents[0];
+                    newObject.SetActive(false);
                 }
             }
         }
@@ -58,11 +69,7 @@ public class SpawnScript : MonoBehaviour
     {
         if (shopersWithWave[waveNumber].Count != 0)
         {
-            float spread = Random.Range(-3.0f, 3.0f);
-            Vector3 position = spawnPoint.position;
-            position.z += spread;
-            shopersWithWave[waveNumber][0].transform.position = position;
-            shopersWithWave[waveNumber][0].SetActive(true);
+            shopersWithWave[waveNumber][0].SetActive(true);    
             shopersWithWave[waveNumber].RemoveAt(0);
             shoperTimer = Time.time;
         }

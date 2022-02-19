@@ -123,14 +123,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e7954d7ac1d17469702b76d2dcc156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flowersTypeNeed: 0300000003000000
+  isSatisfy: 0
+  pathElemeents: []
   priceOfSatisfy: 10
-  speed: 5
+  speed: 4
   UIflowers:
   - {fileID: 29695130842268403}
   - {fileID: 29695129462771523}
   - {fileID: 29695131027039011}
-  flowersTypeNeed: 030000000300000003000000
-  isSatisfy: 0
 --- !u!195 &29695130839647543
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -142,9 +143,9 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5000001
   m_Speed: 5
-  m_Acceleration: 8
+  m_Acceleration: 30
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 1000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
