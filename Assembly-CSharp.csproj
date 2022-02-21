@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\TowersScropts\TowerUIScript.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\TowersScropts\GreenHouseScript.cs" />
+    <Compile Include="Assets\Scripts\TowersScropts\FlowerScript.cs" />
     <Compile Include="Assets\Scripts\TowersScropts\FlowersMarketScript.cs" />
     <Compile Include="Assets\Scripts\TowersScropts\TowerScript.cs" />
     <Compile Include="Assets\Scripts\UiScripts\StartMenuScript.cs" />
@@ -72,9 +73,8 @@
     <Compile Include="Assets\Scripts\ChangeLevelScript.cs" />
     <Compile Include="Assets\Scripts\ArrayScript.cs" />
     <Compile Include="Assets\Scripts\GameDataScript.cs" />
-    <Compile Include="Assets\Scripts\SoundsCript.cs" />
     <Compile Include="Assets\Scripts\TowersScropts\WorkerScript.cs" />
-    <Compile Include="Assets\Scripts\TowersScropts\FlowerScript.cs" />
+    <Compile Include="Assets\Scripts\SoundsCript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

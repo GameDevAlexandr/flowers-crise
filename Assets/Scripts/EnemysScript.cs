@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class EnemysScript : MonoBehaviour
 {
     public int[] flowersTypeNeed;
-    [HideInInspector]public bool isSatisfy;
-    public List<Vector3> pathElemeents;
+    [HideInInspector] public bool isDrunk;
+    [HideInInspector] public List<Vector3> pathElemeents;
+    [HideInInspector] public bool isSatisfy;
     [SerializeField] private int priceOfSatisfy;
     [SerializeField] private float speed;
     [SerializeField] private Image[] UIflowers;
@@ -17,6 +18,9 @@ public class EnemysScript : MonoBehaviour
     private NavMeshAgent agent;
     private GameManager gm;
     private bool isStarted;
+    private float startDrunk;
+    private float drunkTime;
+
         
     void Awake()
     {
@@ -49,10 +53,25 @@ public class EnemysScript : MonoBehaviour
             startEnemy();
             isStarted = true;
         }
-        if (agent.remainingDistance == 0 && pathIndex < pathElemeents.Count)
+        if (agent.remainingDistance == 0)
         {
-            pathIndex++;
-            startEnemy();
+            if (pathIndex < pathElemeents.Count)
+            { 
+                startEnemy();
+                pathIndex++;
+            }
+            else
+            {
+                Finish();
+            }
+        }
+        if (isDrunk)
+        {
+            if (Time.time - startDrunk > drunkTime)
+            {
+                agent.speed = speed;
+                isDrunk = false;
+            }
         }
     }
     public void AddFlowers(int flowersCount, int index)
@@ -70,19 +89,23 @@ public class EnemysScript : MonoBehaviour
             gm.AddMoney(priceOfSatisfy);
         }
     }
+    public void AddWine(float strenght, float time )
+    {
+        isDrunk = true;
+        drunkTime = time;
+        startDrunk = Time.time;
+        agent.speed = speed / strenght;
+    }
     public void Freeze()
     {
         agent.speed = 0;
     }
-    private void OnTriggerEnter(Collider other)
+    private void Finish()
     {
-        if(other.tag == "EnemyFinish")
+        if (!isSatisfy)
         {
-            if (!isSatisfy)
-            {
-                gm.FlipPage(1);
-            }
-            Destroy(gameObject);
+            gm.FlipPage(1);
         }
+        Destroy(gameObject);
     }
 }

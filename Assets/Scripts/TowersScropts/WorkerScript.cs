@@ -34,6 +34,7 @@ public class WorkerScript : MonoBehaviour
                     agent.destination = startPosition;
                     toMarket = false;
                     targetMarket.GetFlowers(flowerType, flowersCount);
+                    targetMarket.used = false;
                     flowerImage.gameObject.SetActive(false);
                 }
                 else
@@ -43,9 +44,9 @@ public class WorkerScript : MonoBehaviour
                     flowerImage.gameObject.SetActive(true);
                     flowerImage.sprite = flowersIco[flowerType];
                     targetMarket = gh.flowerMarket;
+                    gh.flowerMarket.used = true;
                     toMarket = true;
                 }
-
             }
         }
     }

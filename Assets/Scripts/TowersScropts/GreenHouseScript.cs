@@ -33,7 +33,7 @@ public class GreenHouseScript : MonoBehaviour
             for (int i = 0; i < markets.Count; i++)
             {
                 int item = markets[i].flowersType[markets[i].needFlowerType];
-                if (item < needItem)
+                if (item < needItem && !markets[i].used)
                 {
                     needItem = item;
                     needFlower = markets[i].needFlowerType;

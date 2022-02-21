@@ -44,8 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flowerType: 0
+  startPosition: {x: 0, y: 0, z: 0}
   speed: 0.05
   flowers:
   - {fileID: 6593349467018235052, guid: d0d22e856d6ad5d488da4179a4e706fd, type: 3}
   - {fileID: 3678740611734381528, guid: 16ee7b2397f9c80459b50dbab19d8fd5, type: 3}
   - {fileID: 4475587023176699052, guid: 1c07d4920d906e546b357839dd7629f9, type: 3}
+  - {fileID: 6914450847169471732, guid: 4aed46d1b1395ae4bb162e8a62632d60, type: 3}
