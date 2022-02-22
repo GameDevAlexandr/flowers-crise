@@ -58,8 +58,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Difficulty.cs" />
     <Compile Include="Assets\Scripts\ControlScript.cs" />
-    <Compile Include="Assets\Scripts\EnemysScript.cs" />
-    <Compile Include="Assets\Scripts\SpawnScript.cs" />
+    <Compile Include="Assets\Scripts\CharacterScript\EnemysScript.cs" />
+    <Compile Include="Assets\Scripts\CharacterScript\SpawnScript.cs" />
     <Compile Include="Assets\Scripts\UiScripts\LookAt.cs" />
     <Compile Include="Assets\Scripts\TowersScropts\EmptyForBuildScript.cs" />
     <Compile Include="Assets\Scripts\TowersScropts\TowerUIScript.cs" />
@@ -73,8 +73,9 @@
     <Compile Include="Assets\Scripts\ChangeLevelScript.cs" />
     <Compile Include="Assets\Scripts\ArrayScript.cs" />
     <Compile Include="Assets\Scripts\GameDataScript.cs" />
-    <Compile Include="Assets\Scripts\TowersScropts\WorkerScript.cs" />
+    <Compile Include="Assets\Scripts\CharacterScript\WorkerScript.cs" />
     <Compile Include="Assets\Scripts\SoundsCript.cs" />
+    <Compile Include="Assets\Scripts\CharacterScript\SellerScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

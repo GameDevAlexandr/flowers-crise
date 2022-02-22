@@ -4,10 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class TowerScript : MonoBehaviour
-{      
-    private float boostTimer;
-    private float boostReloadTimer;
-    private Text bTimertext;
+{        
+    public Sprite towerIco;
+    public int priceTower;
+    public float speed;
+    public float radius;
+    public ParticleSystem radiusSphere;
+    public bool boostOn;
+    [HideInInspector] public GameManager gm;
+    [HideInInspector] public bool isUpgrade;
+    [HideInInspector] public int levelTower; 
     [SerializeField] private GameObject upgradeTower;
     [SerializeField] private Button boostButton;
     [SerializeField] private Button upgradeButton;
@@ -16,19 +22,19 @@ public class TowerScript : MonoBehaviour
     [SerializeField] private int sellPrise;
     [SerializeField] private float boostTime;
     [SerializeField] private float boostReloadTime;
-    [HideInInspector] public GameManager gm;
-    public Sprite towerIco;
-    public int priceTower;
-    public float speed;
-    public float radius;
-    public ParticleSystem radiusSphere;
-    public bool boostOn;
+    [SerializeField] private int maxUpgardeLevel;
+    private Text priceUpgradeText;
+    private float boostTimer;
+    private float boostReloadTimer;
+    private Text bTimertext;
     // Start is called before the first frame update
     void Start()
     {
+        levelTower = 0;
         boostButton.interactable = false;
         bTimertext = boostButton.GetComponentInChildren<Text>();
-        upgradeButton.GetComponentInChildren<Text>().text = priceOfUpgrade.ToString();
+        priceUpgradeText = upgradeButton.GetComponentInChildren<Text>();
+        priceUpgradeText.text = priceOfUpgrade.ToString();
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         destroyText.text = sellPrise.ToString();
         boostOn = false;
@@ -61,7 +67,7 @@ public class TowerScript : MonoBehaviour
             }
         }
         //activate/diactivate upgrade button
-        if (gm.moneyCount >= priceOfUpgrade)
+        if (gm.moneyCount >= priceOfUpgrade && levelTower<maxUpgardeLevel)
         {
             upgradeButton.interactable = true;
         }
@@ -72,10 +78,11 @@ public class TowerScript : MonoBehaviour
     }
     public void UpgradeTower()
     {
-        GameObject newTower = GameObject.Instantiate(upgradeTower);
-        newTower.transform.position = transform.position;
+        levelTower ++;
+        isUpgrade = true;
         gm.AddMoney(-priceOfUpgrade);
-        Destroy(gameObject);
+        priceOfUpgrade *= 2;
+        priceUpgradeText.text = priceOfUpgrade.ToString();
     }
     public void BoostActivate(bool active)
     {

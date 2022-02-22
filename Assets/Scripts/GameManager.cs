@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public int moneyCount;
     [HideInInspector] public List<FlowersMarketScript> marketInScene;
     [HideInInspector] public List<GreenHouseScript> greenHouseinScene;
+    [HideInInspector] public List<GameObject> enemys;
     private void Start()
     {
         marketInScene = new List<FlowersMarketScript>();
@@ -23,6 +24,13 @@ public class GameManager : MonoBehaviour
         ui = GameObject.Find("UI").GetComponent<UIScript>();
         ui.moneyText.text = moneyCount.ToString();
         ui.pagesText.text = pagesCount.ToString();
+    }
+    private void Update()
+    {
+        if (enemys.Count == 0)
+        {
+            ui.victoryPanel.SetActive(true);
+        }
     }
     public void onToutchEvent(Vector3 position)
     {

@@ -14,9 +14,11 @@ public class GreenHouseScript : MonoBehaviour
     private List<FlowersMarketScript> markets;
     public FlowersMarketScript flowerMarket;
     private GameManager gm;
+    private List<WorkerScript> workers;
 
     void Start()
     {
+        workers = new List<WorkerScript>();
         firstWorkerIsCreate = false;
         markets = new List<FlowersMarketScript>();
         ts = GetComponent<TowerScript>();
@@ -43,11 +45,13 @@ public class GreenHouseScript : MonoBehaviour
             }
             if (!firstWorkerIsCreate)
             {
-                GameObject newWorker = GameObject.Instantiate(worker, transform.position, Quaternion.identity);
-                WorkerScript ws = newWorker.GetComponent<WorkerScript>();
-                ws.StartWorker(gameObject);
                 firstWorkerIsCreate = true;
             }
+        }
+        if (ts.isUpgrade||workers.Count==0&&markets.Count!=0)
+        {
+            ts.isUpgrade = false;
+            WorkerCreate();
         }
     }
     public void GetTowers()
@@ -63,5 +67,13 @@ public class GreenHouseScript : MonoBehaviour
                 markets.Add(gm.marketInScene[i]);
             } 
         }
+    }
+    private void WorkerCreate()
+    {
+        GameObject newWorker = GameObject.Instantiate(worker, transform.position, Quaternion.identity);
+        newWorker.transform.parent = transform;
+        WorkerScript ws = newWorker.GetComponent<WorkerScript>();
+        ws.StartWorker(gameObject);
+        workers.Add(ws);
     }
 }

@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 457843006537532894}
         m_TargetAssemblyTypeName: TowerScript, Assembly-CSharp
         m_MethodName: BoostActivate
         m_Mode: 6
@@ -212,101 +212,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
---- !u!1 &457843005147494518
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 457843005147494505}
-  - component: {fileID: 457843005147494506}
-  - component: {fileID: 457843005147494507}
-  - component: {fileID: 457843005147494504}
-  m_Layer: 0
-  m_Name: Cube (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &457843005147494505
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457843005147494518}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.7, z: 0}
-  m_LocalScale: {x: 5, y: 3, z: 5}
-  m_Children: []
-  m_Father: {fileID: 457843006537532880}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &457843005147494506
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457843005147494518}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &457843005147494507
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457843005147494518}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &457843005147494504
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457843005147494518}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &457843005398874431
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &457843005485861179
 RectTransform:
   m_ObjectHideFlags: 0
@@ -418,7 +323,7 @@ RectTransform:
   m_Children:
   - {fileID: 457843005800679405}
   m_Father: {fileID: 457843006537532880}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -607,7 +512,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 457843006537532894}
         m_TargetAssemblyTypeName: TowerScript, Assembly-CSharp
         m_MethodName: DestroyTower
         m_Mode: 1
@@ -715,7 +620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &457843005800679405
 RectTransform:
   m_ObjectHideFlags: 0
@@ -897,7 +802,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 457843006537532894}
         m_TargetAssemblyTypeName: TowerScript, Assembly-CSharp
         m_MethodName: UpgradeTower
         m_Mode: 1
@@ -924,7 +829,7 @@ GameObject:
   - component: {fileID: 379363718179281766}
   m_Layer: 0
   m_Name: GreenHouse
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -940,9 +845,9 @@ Transform:
   m_LocalPosition: {x: 14.512053, y: 13.528845, z: -4.046402}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7051965245992892491}
   - {fileID: 457843005485861179}
-  - {fileID: 457843005147494505}
+  - {fileID: 7051965245992892491}
+  - {fileID: 1592426791995205384}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -975,21 +880,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ab94c962d884d3468e63b56eb927211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeTower: {fileID: 0}
-  boostButton: {fileID: 457843004834815431}
-  upgradeButton: {fileID: 457843005925074743}
-  destroyText: {fileID: 457843005398874417}
-  priceOfUpgrade: 10
-  sellPrise: 10
-  boostTime: 10
-  boostReloadTime: 10
-  gm: {fileID: 0}
-  towerIco: {fileID: 21300000, guid: 380cce422560f8848a55ba7511d2730a, type: 3}
-  priceTower: 0
+  towerIco: {fileID: 21300000, guid: 8b02637177e69c841922bc2d147c41fd, type: 3}
+  priceTower: 30
   speed: 0
   radius: 100
   radiusSphere: {fileID: 7051965245992892489}
   boostOn: 0
+  gm: {fileID: 0}
+  isUpgrade: 0
+  levelTower: 0
+  upgradeTower: {fileID: 0}
+  boostButton: {fileID: 457843004834815431}
+  upgradeButton: {fileID: 457843005925074743}
+  destroyText: {fileID: 457843005398874417}
+  priceOfUpgrade: 60
+  sellPrise: 15
+  boostTime: 10
+  boostReloadTime: 10
+  maxUpgardeLevel: 3
 --- !u!114 &457843006537532895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1002,7 +910,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bea22f100b9774149bb7d1abdad8c001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerUI: {fileID: 457843005800679400}
+  towerUI: {fileID: 457843005485861176}
+  otherUI: {fileID: 0}
   flowersCounters: []
 --- !u!65 &379363718179281766
 BoxCollider:
@@ -1015,8 +924,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 4.472972, z: 10}
-  m_Center: {x: 0, y: 2.763514, z: 0}
+  m_Size: {x: 17.790003, y: 11.124716, z: 10}
+  m_Center: {x: 0.14895916, y: 3.7144098, z: 0}
 --- !u!1001 &457843004896622527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1026,7 +935,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7459940991740202996, guid: 9fd1d9af04ed6514c8fcebc5940774d1, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7459940991740202996, guid: 9fd1d9af04ed6514c8fcebc5940774d1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1083,4 +992,66 @@ Transform:
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7459940991740202998, guid: 9fd1d9af04ed6514c8fcebc5940774d1, type: 3}
   m_PrefabInstance: {fileID: 457843004896622527}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1266592072774516963
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 457843006537532880}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 489d12d1bd6ec824cbf48fb01260cccb, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 489d12d1bd6ec824cbf48fb01260cccb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 489d12d1bd6ec824cbf48fb01260cccb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.64
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 489d12d1bd6ec824cbf48fb01260cccb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.036481228
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 489d12d1bd6ec824cbf48fb01260cccb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.92387956
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 489d12d1bd6ec824cbf48fb01260cccb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 489d12d1bd6ec824cbf48fb01260cccb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.38268343
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 489d12d1bd6ec824cbf48fb01260cccb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 489d12d1bd6ec824cbf48fb01260cccb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 489d12d1bd6ec824cbf48fb01260cccb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 489d12d1bd6ec824cbf48fb01260cccb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 489d12d1bd6ec824cbf48fb01260cccb, type: 3}
+      propertyPath: m_Name
+      value: garden_tower
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 489d12d1bd6ec824cbf48fb01260cccb, type: 3}
+--- !u!4 &1592426791995205384 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 489d12d1bd6ec824cbf48fb01260cccb, type: 3}
+  m_PrefabInstance: {fileID: 1266592072774516963}
   m_PrefabAsset: {fileID: 0}

@@ -53,7 +53,7 @@ MonoBehaviour:
   isDrunk: 0
   pathElemeents: []
   isSatisfy: 0
-  priceOfSatisfy: 10
+  priceOfSatisfy: 15
   speed: 4
   UIflowers:
   - {fileID: 608306033672770776}

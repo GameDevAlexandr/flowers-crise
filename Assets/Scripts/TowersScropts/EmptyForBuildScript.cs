@@ -10,16 +10,18 @@ public class EmptyForBuildScript : MonoBehaviour
     [SerializeField] private Button[] towersButton;
     private GameManager gm;
     private int[] towersPrice;
+    private TowerScript[] ts;
     private void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         towersPrice = new int[towersType.Length];
+        ts = new TowerScript[towersType.Length];
         for (int i = 0; i <  towersType.Length; i++)
         {
-            TowerScript ts = towersType[i].GetComponent<TowerScript>();
-            towersPrice[i] = ts.priceTower;
-            towersButton[i].image.sprite = ts.towerIco;
-            towersButton[i].GetComponentInChildren<Text>().text = ts.priceTower.ToString();
+            ts[i] = towersType[i].GetComponent<TowerScript>();
+            towersPrice[i] = ts[i].priceTower;
+            towersButton[i].image.sprite = ts[i].towerIco;
+            towersButton[i].GetComponentInChildren<Text>().text = ts[i].priceTower.ToString();
         }
     }
     void Update()
@@ -40,6 +42,7 @@ public class EmptyForBuildScript : MonoBehaviour
     {
         GameObject newBuild = GameObject.Instantiate(towersType[towerNumber]);
         newBuild.transform.position = transform.position;
+        gm.AddMoney(-ts[towerNumber].priceTower);
         if (towersType[towerNumber].name != "GreenHouse")
         {
             gm.marketInScene.Add(newBuild.GetComponent<FlowersMarketScript>());

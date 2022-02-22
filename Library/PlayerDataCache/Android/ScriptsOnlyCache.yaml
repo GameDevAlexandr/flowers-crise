@@ -10,6 +10,7 @@ ScriptsOnlyBuild:
     - GameManager
     - GreenHouseScript
     - LookAt
+    - SellerScript
     - SpawnScript
     - StartMenuScript
     - TowerScript
@@ -17,10 +18,7 @@ ScriptsOnlyBuild:
     - UIScript
     - WorkerScript
     NavMeshComponents.dll:
-    - UnityEngine.AI.NavMeshModifierVolume
     - UnityEngine.AI.NavMeshSurface
-    NavMeshComponentsEditor.dll:
-    - UnityEditor.AI.NavMeshAssetManager
     Unity.DeviceSimulator.Editor.dll:
     - UnityEditor.DeviceSimulation.DeviceInfoAsset
     - UnityEditor.DeviceSimulation.SimulatorWindow
@@ -73,8 +71,6 @@ ScriptsOnlyBuild:
     - Class: 65
       Script: {instanceID: 0}
     - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -135,13 +131,15 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
-    - Class: 64
-      Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
       Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
@@ -161,8 +159,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 1716}
     - Class: 114
       Script: {instanceID: 1722}
-    - Class: 114
-      Script: {instanceID: 1732}
     - Class: 114
       Script: {instanceID: 1760}
     - Class: 114
@@ -197,15 +193,19 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3470}
     - Class: 114
       Script: {instanceID: 4222}
+    - Class: 114
+      Script: {instanceID: 49110}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
-    - Class: 135
-      Script: {instanceID: 0}
     - Class: 136
       Script: {instanceID: 0}
     - Class: 137
+      Script: {instanceID: 0}
+    - Class: 154
+      Script: {instanceID: 0}
+    - Class: 156
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -217,7 +217,11 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 199
       Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    - Class: 218
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -233,6 +237,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 245
       Script: {instanceID: 0}
+    - Class: 1953259897
+      Script: {instanceID: 0}
     Assets/Scenes/StartMenuScene.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -247,8 +253,6 @@ ScriptsOnlyBuild:
     - Class: 48
       Script: {instanceID: 0}
     - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -293,16 +297,16 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
-      Hash: a6e561615949734e9f12f9b61661f43e
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Image
-  - hash:
-      serializedVersion: 2
       Hash: 699619b86d9359741a4f58540298c80b
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Text
+  - hash:
+      serializedVersion: 2
+      Hash: a6e561615949734e9f12f9b61661f43e
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Image
   - hash:
       serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
@@ -371,7 +375,7 @@ ScriptsOnlyBuild:
     className: ControlScript
   - hash:
       serializedVersion: 2
-      Hash: 6b30550f5f6710b16d4f29db086a4e1a
+      Hash: f6c373663483c04834b165416a88e8fe
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemysScript
@@ -425,7 +429,7 @@ ScriptsOnlyBuild:
     className: PlaymodeTestsController
   - hash:
       serializedVersion: 2
-      Hash: 77673523345b211cc1742ef141204271
+      Hash: b45a199118813fd63b663563de52a39d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TowerUIScript
@@ -437,7 +441,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: 2f8764e914236090326f1545e07db6a6
+      Hash: 436384ceaf9c6e1840572666e197962a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -611,7 +615,7 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: c9cc8063478dbe2a517fb63f3ba7cfef
+      Hash: eca1bfb658aa27fae43fbb83f1424cd4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FlowersMarketScript
@@ -629,7 +633,7 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
-      Hash: d536de734dd9b5b0b26687265fca63cd
+      Hash: 9bbda330303f9add8cf63f9cbab14e12
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TowerScript
@@ -707,7 +711,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: cf4b1a3ea90b655ac233cfa5f8a7f9f0
+      Hash: 62a1959cf3dcee69a9c1090de0fd7512
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIScript
@@ -831,6 +835,12 @@ ScriptsOnlyBuild:
     assemblyName: NavMeshComponents.dll
     namespaceName: UnityEngine.AI
     className: NavMeshLink
+  - hash:
+      serializedVersion: 2
+      Hash: ab74cdf33d8fc5978bc310f534a48c59
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SellerScript
   platform: 13
   scenePathNames:
   - Assets/Scenes/StartMenuScene.unity
