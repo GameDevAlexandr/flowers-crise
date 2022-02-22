@@ -13,6 +13,7 @@ public class EnemysScript : MonoBehaviour
     [SerializeField] private int priceOfSatisfy;
     [SerializeField] private float speed;
     [SerializeField] private Image[] UIflowers;
+    [SerializeField] private ParticleSystem drunkParticle;
     private int[] maxFlowersType;
     private int pathIndex;
     private NavMeshAgent agent;
@@ -20,12 +21,14 @@ public class EnemysScript : MonoBehaviour
     private bool isStarted;
     private float startDrunk;
     private float drunkTime;
+    private Animator animator;
 
         
     void Awake()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponentInChildren<Animator>();
         agent.speed = speed;
         isSatisfy = false;
         maxFlowersType = new int[flowersTypeNeed.Length];
@@ -35,6 +38,7 @@ public class EnemysScript : MonoBehaviour
         }
         pathIndex = 1;
         isStarted = false;
+        animator.speed = 0.25f*speed;
     }
     private void Start()
     {
@@ -70,7 +74,9 @@ public class EnemysScript : MonoBehaviour
             if (Time.time - startDrunk > drunkTime)
             {
                 agent.speed = speed;
+                animator.speed = 0.25f * speed;
                 isDrunk = false;
+                drunkParticle.gameObject.SetActive(false);
             }
         }
     }
@@ -95,6 +101,9 @@ public class EnemysScript : MonoBehaviour
         drunkTime = time;
         startDrunk = Time.time;
         agent.speed = speed / strenght;
+        animator.speed = 0.25f * agent.speed;
+        drunkParticle.gameObject.SetActive(true);
+        
     }
     public void Freeze()
     {
