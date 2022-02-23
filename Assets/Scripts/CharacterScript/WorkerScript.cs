@@ -19,9 +19,11 @@ public class WorkerScript : MonoBehaviour
     private bool toMarket;
     private FlowersMarketScript targetMarket;
     private bool isStarted;
+    private Animator animator;
     void Start()
     {
-
+        animator = GetComponentInChildren<Animator>();
+        animator.speed = animator.speed / 4 * speed;
     }
     void Update()
     {
@@ -63,5 +65,19 @@ public class WorkerScript : MonoBehaviour
         agent.speed = speed;
         agent.destination = gh.flowerMarket.transform.position;
         isStarted = true;
+    }
+    public void Boost(bool isBoost)
+    {
+        if (isBoost)
+        {
+            agent.speed *= 2; 
+            animator.speed *= 2;
+
+        }
+        else
+        {
+            agent.speed *= 0.5f;
+            animator.speed *= 0.5f;
+        }
     }
 }

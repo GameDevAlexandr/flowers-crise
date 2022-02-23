@@ -15,6 +15,7 @@ public class GreenHouseScript : MonoBehaviour
     public FlowersMarketScript flowerMarket;
     private GameManager gm;
     private List<WorkerScript> workers;
+    private bool boosting;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class GreenHouseScript : MonoBehaviour
         ts = GetComponent<TowerScript>();
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         gm.updateTowers();
+        boosting = false;
     }
 
     // Update is called once per frame
@@ -52,6 +54,22 @@ public class GreenHouseScript : MonoBehaviour
         {
             ts.isUpgrade = false;
             WorkerCreate();
+        }
+        if (ts.boostOn && !boosting)
+        {
+            for (int i = 0; i < workers.Count; i++)
+            {
+                workers[i].Boost(true);
+            }
+            boosting = true;
+        }
+        else if(!ts.boostOn&&boosting)
+        {
+            for (int i = 0; i < workers.Count; i++)
+            {
+                workers[i].Boost(false);
+            }
+            boosting = false;
         }
     }
     public void GetTowers()

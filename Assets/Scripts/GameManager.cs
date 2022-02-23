@@ -8,15 +8,18 @@ using static GameDataScript;
 
 public class GameManager : MonoBehaviour
 {
-    private UIScript ui;
-    private TowerUIScript selectedTower;
-    [SerializeField] private int pagesCount;
-    [SerializeField] private AudioMixerGroup audioMixer;
+    
+    
     public GameObject emptyForTower;
     public int moneyCount;
     [HideInInspector] public List<FlowersMarketScript> marketInScene;
     [HideInInspector] public List<GreenHouseScript> greenHouseinScene;
     [HideInInspector] public List<GameObject> enemys;
+    [SerializeField] private int pagesCount;
+    [SerializeField] private AudioMixerGroup audioMixer;
+    private UIScript ui;
+    private TowerUIScript selectedTower;
+    private float curSoundsVolume;
     private void Start()
     {
         marketInScene = new List<FlowersMarketScript>();
@@ -80,6 +83,24 @@ public class GameManager : MonoBehaviour
             {
                 greenHouseinScene[i].GetTowers();
             }
+        }
+    }
+    public void Pause(bool isPause)
+    {
+        if (isPause)
+        {
+            Time.timeScale = 0;
+            musicVolume *= 0.5f;
+            curSoundsVolume = soundVolume;
+            soundVolume = 0;
+            SetAudioVolume();
+        }
+        else
+        {
+            Time.timeScale = 1;
+            musicVolume *= 2;
+            soundVolume = curSoundsVolume;
+            SetAudioVolume();
         }
     }
 }

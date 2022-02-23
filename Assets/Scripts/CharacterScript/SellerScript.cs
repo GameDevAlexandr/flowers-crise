@@ -65,5 +65,13 @@ public class SellerScript : MonoBehaviour
             DropFlowers();
             lastShotTime = Time.time;
         }
+        if (ts.boostOn)
+        {
+            timeBetweenShot = 30 / ts.speed;
+        }
+        else
+        {
+            timeBetweenShot = 60 / ts.speed;
+        }
     }
 }
