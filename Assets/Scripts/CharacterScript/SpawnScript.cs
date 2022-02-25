@@ -17,7 +17,6 @@ public class SpawnScript : MonoBehaviour
     private float waveTimer;
     private float shoperTimer;
     private bool startSpawn;
-    private bool startWave;
     private GameManager gm;
     void Start()
     {

@@ -408,28 +408,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 270045104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7287b235dcd664439de638562ca96f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 703aa3983d5404341ba18478522a6e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopers:
+  enemys:
+  - {fileID: 191627323742037689, guid: d754924140ac4104e997d1e69f633f7b, type: 3}
+  - {fileID: 2931362865932657544, guid: c06001a9eadfb8146863b835f0355345, type: 3}
+  - {fileID: 2931362865932657544, guid: c06001a9eadfb8146863b835f0355345, type: 3}
+  - {fileID: 2931362865932657544, guid: c06001a9eadfb8146863b835f0355345, type: 3}
+  - {fileID: 2931362865932657544, guid: c06001a9eadfb8146863b835f0355345, type: 3}
   - {fileID: 2931362865932657544, guid: c06001a9eadfb8146863b835f0355345, type: 3}
   - {fileID: 29695130839647536, guid: 5433c387e15e21345a46ab120c0a0d94, type: 3}
+  - {fileID: 29695130839647536, guid: 5433c387e15e21345a46ab120c0a0d94, type: 3}
+  - {fileID: 29695130839647536, guid: 5433c387e15e21345a46ab120c0a0d94, type: 3}
   - {fileID: 29695130839647536, guid: c17a856405dd22a4185abd72cc579d72, type: 3}
-  spawnScheme:
-    wive:
-    - mobs: 03000000
-    - mobs: 0300000001000000
-    - mobs: 0400000002000000
-    - mobs: 050000000200000001000000
-  timeBetweenWaves: 15
-  timeBetweenShopers: 1.5
-  spawnPoint: {fileID: 0}
+  - {fileID: 29695130839647536, guid: c17a856405dd22a4185abd72cc579d72, type: 3}
+  - {fileID: 191627323742037689, guid: d754924140ac4104e997d1e69f633f7b, type: 3}
+  - {fileID: 2931362865932657544, guid: c06001a9eadfb8146863b835f0355345, type: 3}
+  - {fileID: 2931362865932657544, guid: c06001a9eadfb8146863b835f0355345, type: 3}
+  - {fileID: 2931362865932657544, guid: c06001a9eadfb8146863b835f0355345, type: 3}
+  - {fileID: 2931362865932657544, guid: c06001a9eadfb8146863b835f0355345, type: 3}
+  - {fileID: 2931362865932657544, guid: c06001a9eadfb8146863b835f0355345, type: 3}
+  - {fileID: 2931362865932657544, guid: c06001a9eadfb8146863b835f0355345, type: 3}
+  - {fileID: 2931362865932657544, guid: c06001a9eadfb8146863b835f0355345, type: 3}
+  - {fileID: 2931362865932657544, guid: c06001a9eadfb8146863b835f0355345, type: 3}
+  - {fileID: 2931362865932657544, guid: c06001a9eadfb8146863b835f0355345, type: 3}
   pathElements:
   - {fileID: 1321285571}
   - {fileID: 2054308749}
   - {fileID: 1344855471}
   - {fileID: 638654866}
   - {fileID: 1587877227}
+  timeBetweenWave: 15
+  timeBetweenEnemy: 1
   spreadIndex: 5
 --- !u!4 &270045107
 Transform:
