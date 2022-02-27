@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     
     public GameObject emptyForTower;
     public int moneyCount;
+    [HideInInspector] public Sounds sounds;
     [HideInInspector] public List<FlowersMarketScript> marketInScene;
     [HideInInspector] public List<GreenHouseScript> greenHouseinScene;
     [HideInInspector] public List<GameObject> enemys;
@@ -20,8 +21,10 @@ public class GameManager : MonoBehaviour
     private UIScript ui;
     private TowerUIScript selectedTower;
     private float curSoundsVolume;
+    
     private void Start()
     {
+        sounds = GameObject.Find("Sounds").GetComponent<Sounds>();
         marketInScene = new List<FlowersMarketScript>();
         greenHouseinScene = new List<GreenHouseScript>();
         ui = GameObject.Find("UI").GetComponent<UIScript>();

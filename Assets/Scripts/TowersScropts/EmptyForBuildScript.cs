@@ -52,6 +52,7 @@ public class EmptyForBuildScript : MonoBehaviour
         {
             gm.greenHouseinScene.Add(newBuild.GetComponent<GreenHouseScript>());
         }
+        gm.sounds.build.Play();
         Destroy(gameObject);
     }
 }

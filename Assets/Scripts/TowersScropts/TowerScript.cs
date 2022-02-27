@@ -82,6 +82,7 @@ public class TowerScript : MonoBehaviour
         isUpgrade = true;
         gm.AddMoney(-priceOfUpgrade);
         priceOfUpgrade *= 2;
+        gm.sounds.upgrade.Play();
         priceUpgradeText.text = priceOfUpgrade.ToString();
     }
     public void BoostActivate(bool active)
@@ -89,9 +90,9 @@ public class TowerScript : MonoBehaviour
         if (active)
         {
             boostOn = true;
+            gm.sounds.boost.Play();
             boostTimer = Time.time;
             boostButton.interactable = false;
-            //boooost!
         }
         else
         {
@@ -108,6 +109,7 @@ public class TowerScript : MonoBehaviour
     public void DestroyTower()
     {
         gm.AddMoney(sellPrise);
+        gm.sounds.sellBuilding.Play();
         GameObject empty = GameObject.Instantiate(gm.emptyForTower);
         empty.transform.position = transform.position;
         Destroy(gameObject);

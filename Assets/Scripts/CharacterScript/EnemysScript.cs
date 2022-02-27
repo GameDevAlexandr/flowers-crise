@@ -14,6 +14,7 @@ public class EnemysScript : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private Image[] UIflowers;
     [SerializeField] private ParticleSystem drunkParticle;
+    [SerializeField] private ParticleSystem destroyPS;
     private int[] maxFlowersType;
     private int pathIndex;
     private NavMeshAgent agent;
@@ -91,13 +92,23 @@ public class EnemysScript : MonoBehaviour
         UIflowers[index].fillAmount = fillIdx * flowersTypeNeed[index];
         if (index == flowersTypeNeed.Length-1 && flowersTypeNeed[index] == 0)
         {
+            gm.sounds.satisfy.Play();
             isSatisfy = true;
+            agent.speed = 0;
+            //animator.Play("Victory");
+            //destroyPS.Play();
             gm.AddMoney(priceOfSatisfy);
             gm.enemys.Remove(gameObject);
+            Destroy(gameObject, 1.0f);
+        }
+        else
+        {
+            gm.sounds.attack.Play();
         }
     }
     public void AddWine(float strenght, float time )
     {
+        gm.sounds.attack.Play();
         isDrunk = true;
         drunkTime = time;
         startDrunk = Time.time;
