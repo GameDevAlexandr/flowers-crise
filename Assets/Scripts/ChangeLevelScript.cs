@@ -9,8 +9,10 @@ public class ChangeLevelScript : MonoBehaviour
 {
     [SerializeField] private int level;
     [SerializeField] private GameObject easyStar, middleStar, hardStar;
+    private Image loadProgress;
     private void Awake()
     {
+        loadProgress = GameObject.Find("LoadProgress").GetComponent<Image>();
         switch (levelRange[level])
         {
             case 1: easyStar.SetActive(true);
@@ -26,11 +28,23 @@ public class ChangeLevelScript : MonoBehaviour
                 break;
         }
     }
-    private void OnMouseDown()
+    public void ChangeLevel()
     {
-        if (level - 1 <= finishLevel)
+        StartCoroutine(LoadAsync(level + 1));
+        //if (level - 1 <= finishLevel)
+        //{
+        //    SceneManager.LoadScene(level + 1);
+        //}
+    }
+    IEnumerator LoadAsync(int sceneIndex)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+        while (!operation.isDone)
         {
-            SceneManager.LoadScene(level + 1);
+            float progress = operation.progress/0.9f;
+            loadProgress.fillAmount = progress;
+            yield return null;
         }
+        
     }
 }

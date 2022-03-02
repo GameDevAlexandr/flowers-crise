@@ -26,6 +26,7 @@ public class GreenHouseScript : MonoBehaviour
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         gm.updateTowers();
         boosting = false;
+        gm.sounds.buildGarden.Play();
     }
 
     // Update is called once per frame

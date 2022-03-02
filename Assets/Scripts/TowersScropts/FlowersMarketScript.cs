@@ -32,6 +32,11 @@ public class FlowersMarketScript : MonoBehaviour
         if (itsWineMarket)
         {
             needFlowerType = 3;
+            ts.gm.sounds.buildWineMarket.Play();
+        }
+        else
+        {
+            ts.gm.sounds.buildFloswerMarket.Play();   
         }
     }
 

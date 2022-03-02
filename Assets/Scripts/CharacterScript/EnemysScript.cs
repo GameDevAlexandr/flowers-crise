@@ -96,10 +96,10 @@ public class EnemysScript : MonoBehaviour
             isSatisfy = true;
             agent.speed = 0;
             //animator.Play("Victory");
-            //destroyPS.Play();
+            destroyPS.Play();
             gm.AddMoney(priceOfSatisfy);
-            gm.enemys.Remove(gameObject);
-            Destroy(gameObject, 1.0f);
+            gm.enemySatisfy(gameObject);
+            Destroy(gameObject, 0.7f);
         }
         else
         {
@@ -127,7 +127,7 @@ public class EnemysScript : MonoBehaviour
         {
             gm.FlipPage(1);
         }
-        gm.enemys.Remove(gameObject);
+        gm.enemySatisfy(gameObject);
         Destroy(gameObject);
     }
 }

@@ -30,13 +30,13 @@ public class GameManager : MonoBehaviour
         ui = GameObject.Find("UI").GetComponent<UIScript>();
         ui.moneyText.text = moneyCount.ToString();
         ui.pagesText.text = pagesCount.ToString();
+        SetSoundVolume(soundVolume);
+        SetMusicVolume(soundVolume);
+        SoundEvent.AddListener(SetAudioVolume);
     }
     private void Update()
     {
-        if (enemys.Count == 0)
-        {
-            ui.victoryPanel.SetActive(true);
-        }
+
     }
     public void onToutchEvent(Vector3 position)
     {
@@ -68,9 +68,12 @@ public class GameManager : MonoBehaviour
     {
         pagesCount -= count;
         ui.pagesText.text = pagesCount.ToString();
+        sounds.bookOfComplaint.Play();
         if (pagesCount <= 0)
         {
             ui.losePanel.SetActive(true);
+            sounds.backGroundMusic.Stop();
+            sounds.loseMusic.Play();
         }
     }
     public void SetAudioVolume()
@@ -90,20 +93,24 @@ public class GameManager : MonoBehaviour
     }
     public void Pause(bool isPause)
     {
+        sounds.click.Play();
         if (isPause)
         {
             Time.timeScale = 0;
-            musicVolume *= 0.5f;
-            curSoundsVolume = soundVolume;
-            soundVolume = 0;
-            SetAudioVolume();
         }
         else
         {
             Time.timeScale = 1;
-            musicVolume *= 2;
-            soundVolume = curSoundsVolume;
-            SetAudioVolume();
+        }
+    }
+    public void enemySatisfy(GameObject enemy)
+    {
+        enemys.Remove(enemy);
+        if (enemys.Count == 0 && pagesCount > 0)
+        {
+            ui.victoryPanel.SetActive(true);
+            sounds.backGroundMusic.Stop();
+            sounds.victoryMusic.Play();
         }
     }
 }
