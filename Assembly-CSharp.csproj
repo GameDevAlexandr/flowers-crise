@@ -76,6 +76,8 @@
     <Compile Include="Assets\Scripts\ArrayScript.cs" />
     <Compile Include="Assets\Scripts\GameDataScript.cs" />
     <Compile Include="Assets\Scripts\CharacterScript\WorkerScript.cs" />
+    <Compile Include="Assets\Scripts\CharacterScript\VisiblePath.cs" />
+    <Compile Include="Assets\Scripts\TowersScropts\UpgradeIndicator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -77,7 +77,7 @@ public class FlowersMarketScript : MonoBehaviour
         ts.isUpgrade = false;
         if (!itsWineMarket)
         {
-            seller[ts.levelTower].SetActive(true);
+            seller[ts.levelTower-1].SetActive(true);
         }
         else
         {

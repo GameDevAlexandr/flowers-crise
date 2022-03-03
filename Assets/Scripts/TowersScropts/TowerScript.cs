@@ -30,13 +30,13 @@ public class TowerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levelTower = 0;
+        levelTower = 1;
         boostButton.interactable = false;
         bTimertext = boostButton.GetComponentInChildren<Text>();
         priceUpgradeText = upgradeButton.GetComponentInChildren<Text>();
         priceUpgradeText.text = priceOfUpgrade.ToString();
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        destroyText.text = sellPrise.ToString();
+        destroyText.text ="+"+ sellPrise.ToString();
         boostOn = false;
         setRadius();
         boostReloadTimer = Time.time;
@@ -81,9 +81,16 @@ public class TowerScript : MonoBehaviour
         levelTower ++;
         isUpgrade = true;
         gm.AddMoney(-priceOfUpgrade);
-        priceOfUpgrade *= 2;
         gm.sounds.upgrade.Play();
-        priceUpgradeText.text = priceOfUpgrade.ToString();
+        if (levelTower < maxUpgardeLevel)
+        {
+            priceOfUpgrade *= 2;
+            priceUpgradeText.text = priceOfUpgrade.ToString();
+        }
+        else
+        {
+            priceUpgradeText.text = "";
+        }
     }
     public void BoostActivate(bool active)
     {

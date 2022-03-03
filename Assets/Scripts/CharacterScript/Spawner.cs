@@ -5,7 +5,9 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemys;
-    [SerializeField] private Transform[] pathElements;
+    [SerializeField] private Transform[] pathElements_1;
+    [SerializeField] private Transform[] pathElements_2;
+    [SerializeField] private Transform[] pathElements_3;
     [SerializeField] private float timeBetweenWave;
     [SerializeField] private float timeBetweenEnemy;
     [SerializeField] private float spreadIndex;
@@ -15,8 +17,16 @@ public class Spawner : MonoBehaviour
     private float startWaveTimer;
     private float startSpawnTimer;
     private bool isStartWave;
+    private Transform[][] pathElements;
     void Start()
     {
+        pathElements = new Transform[3][];
+        pathElements[0] = new Transform[pathElements_1.Length];
+        pathElements[1] = new Transform[pathElements_2.Length];
+        pathElements[2] = new Transform[pathElements_3.Length];
+        pathElements[0] = pathElements_1;
+        pathElements[1] = pathElements_2;
+        pathElements[2] = pathElements_3;
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         enemyObjects = new List<GameObject>();
         enemyCounter = new List<GameObject>();
@@ -28,12 +38,21 @@ public class Spawner : MonoBehaviour
                 GameObject newObject = GameObject.Instantiate(enemys[i]);
                 Debug.Log(newObject.name);
                 enemyObjects.Add(newObject);
+                int rndIndex =0;
+                for (int j = 0; j < pathElements.Length; j++)
+                {
+                    if (pathElements[j].Length!=0)
+                    {
+                        rndIndex++;
+                    }
+                }
+                int choosePath = Random.Range(0, rndIndex);
                 float spreadX = Random.Range(-spreadIndex, spreadIndex);
                 float spreadY = Random.Range(-spreadIndex, spreadIndex);
                 EnemysScript es = newObject.GetComponent<EnemysScript>();
-                for (int k = 0; k < pathElements.Length; k++)
+                for (int k = 0; k < pathElements[choosePath].Length; k++)
                 {
-                    Vector3 positions = pathElements[k].position;
+                    Vector3 positions = pathElements[choosePath][k].position;
                     positions.x += spreadX;
                     positions.z += spreadY;
                     es.pathElemeents.Add(positions);

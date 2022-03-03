@@ -17,10 +17,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public List<GreenHouseScript> greenHouseinScene;
     [HideInInspector] public List<GameObject> enemys;
     [SerializeField] private int pagesCount;
-    [SerializeField] private AudioMixerGroup audioMixer;
     private UIScript ui;
     private TowerUIScript selectedTower;
-    private float curSoundsVolume;
     
     private void Start()
     {
@@ -32,7 +30,7 @@ public class GameManager : MonoBehaviour
         ui.pagesText.text = pagesCount.ToString();
         SetSoundVolume(soundVolume);
         SetMusicVolume(soundVolume);
-        SoundEvent.AddListener(SetAudioVolume);
+        //SoundEvent.AddListener(SetAudioVolume);
     }
     private void Update()
     {
@@ -75,11 +73,6 @@ public class GameManager : MonoBehaviour
             sounds.backGroundMusic.Stop();
             sounds.loseMusic.Play();
         }
-    }
-    public void SetAudioVolume()
-    {
-        audioMixer.audioMixer.SetFloat("Music", musicVolume);
-        audioMixer.audioMixer.SetFloat("Sounds", soundVolume);
     }
     public void updateTowers()
     {

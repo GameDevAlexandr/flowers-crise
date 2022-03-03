@@ -25,6 +25,9 @@ public class UIScript : MonoBehaviour
         victoryPanel = GameObject.Find("VictoryPanel");
         losePanel.SetActive(false);
         victoryPanel.SetActive(false);
+        soundSlider.value = soundVolume;
+        musicSlider.value = musicVolume;
+        muteToggle.isOn = isMute;
     } 
     public void Again()
     {
@@ -50,6 +53,7 @@ public class UIScript : MonoBehaviour
     }
     public void Mute()
     {
+        isMute = muteToggle.isOn;
         if (muteToggle.isOn)
         {
             SetSoundVolume(-80);
