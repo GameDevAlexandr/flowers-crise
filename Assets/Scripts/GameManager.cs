@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
         SetSoundVolume(soundVolume);
         SetMusicVolume(soundVolume);
         spawners[0].StartSpawner();
+        //Pause(true);
         //SoundEvent.AddListener(SetAudioVolume);
     }
     private void Update()

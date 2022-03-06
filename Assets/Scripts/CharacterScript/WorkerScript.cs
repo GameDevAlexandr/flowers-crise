@@ -14,6 +14,7 @@ public class WorkerScript : MonoBehaviour
     private GreenHouseScript gh;
     [SerializeField] int flowersCount;
     [SerializeField] Sprite[] flowersIco;
+    [SerializeField] GameObject[] inBascetFlowers;
     [SerializeField] Image flowerImage;
     private NavMeshAgent agent;
     private bool toMarket;
@@ -41,6 +42,7 @@ public class WorkerScript : MonoBehaviour
                     }
                     targetMarket.used = false;
                     flowerImage.gameObject.SetActive(false);
+                    inBascetFlowers[flowerType].SetActive(false);
                 }
                 else
                 {
@@ -50,6 +52,7 @@ public class WorkerScript : MonoBehaviour
                         flowerType = gh.needFlower;
                         flowerImage.gameObject.SetActive(true);
                         flowerImage.sprite = flowersIco[flowerType];
+                        inBascetFlowers[flowerType].SetActive(true);
                         targetMarket = gh.flowerMarket;
                         gh.flowerMarket.used = true;
                         toMarket = true;
@@ -62,6 +65,7 @@ public class WorkerScript : MonoBehaviour
     {
         gh = meTower.GetComponent<GreenHouseScript>();
         flowerType = gh.needFlower;
+        inBascetFlowers[flowerType].SetActive(true);
         flowerImage.gameObject.SetActive(true);
         flowerImage.sprite = flowersIco[flowerType];
         toMarket = true;

@@ -14,7 +14,8 @@ public class Sounds : MonoBehaviour
     public AudioSource satisfy;
     public AudioSource bookOfComplaint;
     public AudioSource click;
+    public AudioSource towerMenu;
     public AudioSource backGroundMusic;
     public AudioSource loseMusic;
-    public AudioSource victoryMusic;
+    public AudioSource victoryMusic;    
 }

@@ -13,6 +13,8 @@ public class UIScript : MonoBehaviour
     [SerializeField] private Toggle muteToggle;
     [SerializeField] private Image scroll;
     [SerializeField] private Image rightHandle;
+    [SerializeField] private GameObject starImageL2;
+    [SerializeField] private GameObject starImageL3;
     [HideInInspector] public Text moneyText;
     [HideInInspector] public Text messageText;
     public GameObject losePanel;
@@ -28,7 +30,7 @@ public class UIScript : MonoBehaviour
         soundSlider.value = soundVolume;
         musicSlider.value = musicVolume;
         muteToggle.isOn = isMute;
-        
+        changeRange.AddListener(setStars);
     } 
     public void Again()
     {
@@ -85,7 +87,15 @@ public class UIScript : MonoBehaviour
       Time.timeScale = timeScale;
         gm.sounds.click.Play();
     }
-
-   
-
+    private void setStars()
+    {
+        if (levelRange[SceneManager.GetActiveScene().buildIndex - 1] >= 2)
+        {
+            starImageL2.SetActive(true);
+        }
+        if(levelRange[SceneManager.GetActiveScene().buildIndex - 1] == 3)
+        {
+            starImageL3.SetActive(true);
+        }
+    }
 }
