@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+
+    public int spawnNumber;
     [SerializeField] private GameObject[] enemys;
     [SerializeField] private Transform[] pathElements_1;
     [SerializeField] private Transform[] pathElements_2;
@@ -11,6 +13,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float timeBetweenWave;
     [SerializeField] private float timeBetweenEnemy;
     [SerializeField] private float spreadIndex;
+    [SerializeField] private string spawnMessage;
     private List<GameObject> enemyObjects;
     private List<GameObject> enemyCounter;
     private GameManager gm;
@@ -18,6 +21,7 @@ public class Spawner : MonoBehaviour
     private float startSpawnTimer;
     private bool isStartWave;
     private Transform[][] pathElements;
+    private bool isStartSpawn;
     void Start()
     {
         pathElements = new Transform[3][];
@@ -36,7 +40,6 @@ public class Spawner : MonoBehaviour
             if (enemys[i].GetComponent<EnemysScript>() != null)
             {
                 GameObject newObject = GameObject.Instantiate(enemys[i]);
-                Debug.Log(newObject.name);
                 enemyObjects.Add(newObject);
                 int rndIndex =0;
                 for (int j = 0; j < pathElements.Length; j++)
@@ -65,19 +68,21 @@ public class Spawner : MonoBehaviour
                 enemyObjects.Add(null);
             }
         }
-        gm.enemys = enemyCounter;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Time.time - startSpawnTimer > timeBetweenEnemy&&!isStartWave&&enemyObjects.Count!=0)
+        if (isStartSpawn)
         {
-            Spawn();
-        }
-        if(isStartWave && Time.time - startWaveTimer > timeBetweenWave)
-        {
-            isStartWave = false;
+            if (Time.time - startSpawnTimer > timeBetweenEnemy && !isStartWave && enemyObjects.Count != 0)
+            {
+                Spawn();
+            }
+            if (isStartWave && Time.time - startWaveTimer > timeBetweenWave)
+            {
+                isStartWave = false;
+            }
         }
     }
     private void Spawn()
@@ -94,5 +99,11 @@ public class Spawner : MonoBehaviour
             isStartWave = true;
             startWaveTimer = Time.time;
         }
+    }
+    public void StartSpawner() 
+    {
+        gm.SendMessage(spawnMessage, 2);
+        isStartSpawn = true;
+        gm.enemys = enemyCounter;
     }
 }

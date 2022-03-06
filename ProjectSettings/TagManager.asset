@@ -8,6 +8,8 @@ TagManager:
   - Tower
   - EnemyFinish
   - Levels
+  - Spawner
+  - Car
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - UI
   - Worker
   - Enemy
-  - 
+  - Builds
   - 
   - 
   - 

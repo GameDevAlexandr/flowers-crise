@@ -35,19 +35,25 @@ public class WorkerScript : MonoBehaviour
                 {
                     agent.destination = startPosition;
                     toMarket = false;
-                    targetMarket.GetFlowers(flowerType, flowersCount);
+                    if (targetMarket != null)
+                    {
+                        targetMarket.GetFlowers(flowerType, flowersCount);
+                    }
                     targetMarket.used = false;
                     flowerImage.gameObject.SetActive(false);
                 }
                 else
                 {
-                    agent.destination = gh.flowerMarket.transform.position;
-                    flowerType = gh.needFlower;
-                    flowerImage.gameObject.SetActive(true);
-                    flowerImage.sprite = flowersIco[flowerType];
-                    targetMarket = gh.flowerMarket;
-                    gh.flowerMarket.used = true;
-                    toMarket = true;
+                    if (gh.flowerMarket != null)
+                    {
+                        agent.destination = gh.flowerMarket.transform.position;
+                        flowerType = gh.needFlower;
+                        flowerImage.gameObject.SetActive(true);
+                        flowerImage.sprite = flowersIco[flowerType];
+                        targetMarket = gh.flowerMarket;
+                        gh.flowerMarket.used = true;
+                        toMarket = true;
+                    }
                 }
             }
         }

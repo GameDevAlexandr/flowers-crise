@@ -8,13 +8,12 @@ public class TowerScript : MonoBehaviour
     public Sprite towerIco;
     public int priceTower;
     public float speed;
-    public float radius;
-    public ParticleSystem radiusSphere;
-    public bool boostOn;
+    public float radius;  
+    [HideInInspector]public bool boostOn;
     [HideInInspector] public GameManager gm;
     [HideInInspector] public bool isUpgrade;
-    [HideInInspector] public int levelTower; 
-    [SerializeField] private GameObject upgradeTower;
+    [HideInInspector] public int levelTower;
+    [HideInInspector] public GameObject empty;
     [SerializeField] private Button boostButton;
     [SerializeField] private Button upgradeButton;
     [SerializeField] private Text destroyText;
@@ -23,6 +22,8 @@ public class TowerScript : MonoBehaviour
     [SerializeField] private float boostTime;
     [SerializeField] private float boostReloadTime;
     [SerializeField] private int maxUpgardeLevel;
+    [SerializeField] bool itsMarket;
+    private ParticleSystem radiusSphere;
     private Text priceUpgradeText;
     private float boostTimer;
     private float boostReloadTimer;
@@ -38,8 +39,9 @@ public class TowerScript : MonoBehaviour
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         destroyText.text ="+"+ sellPrise.ToString();
         boostOn = false;
-        setRadius();
         boostReloadTimer = Time.time;
+        radiusSphere = GetComponent<TowerUIScript>().radiusSphere;
+        setRadius();
     }
 
     // Update is called once per frame
@@ -115,10 +117,13 @@ public class TowerScript : MonoBehaviour
     }
     public void DestroyTower()
     {
+        if (itsMarket)
+        {
+            gm.marketInScene.Remove(GetComponent<FlowersMarketScript>());
+        }
         gm.AddMoney(sellPrise);
         gm.sounds.sellBuilding.Play();
-        GameObject empty = GameObject.Instantiate(gm.emptyForTower);
-        empty.transform.position = transform.position;
+        empty.SetActive(true);
         Destroy(gameObject);
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -17,19 +18,35 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public List<GreenHouseScript> greenHouseinScene;
     [HideInInspector] public List<GameObject> enemys;
     [SerializeField] private int pagesCount;
+    [SerializeField] private int TwoStar;
+    [SerializeField] private int ThreeStar;
     private UIScript ui;
     private TowerUIScript selectedTower;
+    private List<Spawner> spawners;
+    private int counterPage;
     
     private void Start()
     {
+        counterPage = 0;
         sounds = GameObject.Find("Sounds").GetComponent<Sounds>();
+        GameObject[] spaws = GameObject.FindGameObjectsWithTag("Spawner");
+        spawners = new List<Spawner>();
+        for (int i = 0; i < 3; i++)
+        {
+            spawners.Add(null);
+        }
+        for (int i = 0; i < spaws.Length; i++)
+        {
+            Spawner sp = spaws[i].GetComponent<Spawner>();
+            spawners[sp.spawnNumber] = sp;
+        }
         marketInScene = new List<FlowersMarketScript>();
         greenHouseinScene = new List<GreenHouseScript>();
         ui = GameObject.Find("UI").GetComponent<UIScript>();
         ui.moneyText.text = moneyCount.ToString();
-        ui.pagesText.text = pagesCount.ToString();
         SetSoundVolume(soundVolume);
         SetMusicVolume(soundVolume);
+        spawners[0].StartSpawner();
         //SoundEvent.AddListener(SetAudioVolume);
     }
     private void Update()
@@ -64,14 +81,16 @@ public class GameManager : MonoBehaviour
     }
     public void FlipPage(int count)
     {
-        pagesCount -= count;
-        ui.pagesText.text = pagesCount.ToString();
+        counterPage += count;
+        ui.ScrollChange((float)count/pagesCount);
+        //ui.pagesText.text = pagesCount.ToString();
         sounds.bookOfComplaint.Play();
-        if (pagesCount <= 0)
+        if (counterPage>= pagesCount)
         {
             ui.losePanel.SetActive(true);
             sounds.backGroundMusic.Stop();
             sounds.loseMusic.Play();
+            Pause(true);
         }
     }
     public void updateTowers()
@@ -99,11 +118,44 @@ public class GameManager : MonoBehaviour
     public void enemySatisfy(GameObject enemy)
     {
         enemys.Remove(enemy);
-        if (enemys.Count == 0 && pagesCount > 0)
+        if (enemys.Count == 0 && pagesCount > 0 )
         {
-            ui.victoryPanel.SetActive(true);
-            sounds.backGroundMusic.Stop();
-            sounds.victoryMusic.Play();
+            spawners.Remove(spawners[0]);
+            if (spawners.Count == 0)
+            {
+                Victory();
+            }
+            else
+            {
+                spawners[0].StartSpawner();
+            }
         }
+    }
+    public void SendMessage(string message,float delayTime)
+    {
+        ui.messageText.text = message;
+        StartCoroutine(MessageOverTime(delayTime));
+    }
+    private void Victory()
+    {
+        ui.victoryPanel.SetActive(true);
+        sounds.backGroundMusic.Stop();
+        sounds.victoryMusic.Play();
+        GameDataScript.levelRange[SceneManager.GetActiveScene().buildIndex - 1] = 1;
+        if (counterPage > ThreeStar && counterPage<=TwoStar)
+        {
+            GameDataScript.levelRange[SceneManager.GetActiveScene().buildIndex - 1] = 2;
+        }
+        else if(counterPage <= ThreeStar)
+        {
+            GameDataScript.levelRange[SceneManager.GetActiveScene().buildIndex - 1] = 3;
+        }
+        Pause(true);
+        LevelRange();
+    }
+    IEnumerator MessageOverTime(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        ui.messageText.text = "";
     }
 }

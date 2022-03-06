@@ -42,6 +42,7 @@ public class EmptyForBuildScript : MonoBehaviour
     {
         GameObject newBuild = GameObject.Instantiate(towersType[towerNumber]);
         newBuild.transform.position = transform.position;
+        newBuild.GetComponent<TowerScript>().empty = gameObject;
         gm.AddMoney(-ts[towerNumber].priceTower);
         if (towersType[towerNumber].name != "GreenHouse")
         {
@@ -52,6 +53,6 @@ public class EmptyForBuildScript : MonoBehaviour
         {
             gm.greenHouseinScene.Add(newBuild.GetComponent<GreenHouseScript>());
         }
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

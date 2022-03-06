@@ -13,20 +13,8 @@ public class ChangeLevelScript : MonoBehaviour
     private void Awake()
     {
         loadProgress = GameObject.Find("LoadProgress").GetComponent<Image>();
-        switch (levelRange[level])
-        {
-            case 1: easyStar.SetActive(true);
-                    break; 
-            case 2: middleStar.SetActive(true);
-                    break;
-            case 3: hardStar.SetActive(true);
-                    break;
-            default: 
-                easyStar.SetActive(false);
-                middleStar.SetActive(false);
-                hardStar.SetActive(false);
-                break;
-        }
+        ChangeRange();
+        changeRange.AddListener(ChangeRange);
     }
     public void ChangeLevel()
     {
@@ -47,4 +35,28 @@ public class ChangeLevelScript : MonoBehaviour
         }
         
     }
+    private void ChangeRange()
+    {
+        switch (levelRange[level])
+        {
+            case 1:
+                easyStar.SetActive(true);
+                break;
+            case 2:
+                easyStar.SetActive(true);
+                middleStar.SetActive(true);
+                break;
+            case 3:
+                easyStar.SetActive(true);
+                middleStar.SetActive(true);
+                hardStar.SetActive(true);
+                break;
+            default:
+                easyStar.SetActive(false);
+                middleStar.SetActive(false);
+                hardStar.SetActive(false);
+                break;
+        }
+    }
+
 }

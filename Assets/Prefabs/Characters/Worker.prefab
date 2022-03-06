@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  flowersCount: 30
+  flowersCount: 15
   flowersIco:
   - {fileID: 21300000, guid: a1fb68e2aa82f474ab4a1b6ef301755f, type: 3}
   - {fileID: 21300000, guid: d1485cde1a727d54fb4a15eda98dfe00, type: 3}

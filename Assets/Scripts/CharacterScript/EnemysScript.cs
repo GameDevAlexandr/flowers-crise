@@ -13,8 +13,11 @@ public class EnemysScript : MonoBehaviour
     [SerializeField] private int priceOfSatisfy;
     [SerializeField] private float speed;
     [SerializeField] private Image[] UIflowers;
+    [SerializeField] private GameObject emptyImage;
+    [SerializeField] private GameObject smileImage;
     [SerializeField] private ParticleSystem drunkParticle;
     [SerializeField] private ParticleSystem destroyPS;
+    [SerializeField] private bool itsBoss;
     private int[] maxFlowersType;
     private int pathIndex;
     private NavMeshAgent agent;
@@ -23,6 +26,7 @@ public class EnemysScript : MonoBehaviour
     private float startDrunk;
     private float drunkTime;
     private Animator animator;
+    private int bossNeeds;
 
         
     void Awake()
@@ -90,21 +94,40 @@ public class EnemysScript : MonoBehaviour
         }
         float fillIdx = 1 / (float)maxFlowersType[index];
         UIflowers[index].fillAmount = fillIdx * flowersTypeNeed[index];
-        if (index == flowersTypeNeed.Length-1 && flowersTypeNeed[index] == 0)
+        bool enemyEmpty = true;
+        for (int i = 0; i <flowersTypeNeed.Length; i++)
         {
-            gm.sounds.satisfy.Play();
-            isSatisfy = true;
-            agent.speed = 0;
-            //animator.Play("Victory");
-            destroyPS.Play();
-            gm.AddMoney(priceOfSatisfy);
-            gm.enemySatisfy(gameObject);
-            Destroy(gameObject, 0.7f);
+            if (flowersTypeNeed[i] != 0)
+            {
+                enemyEmpty = false;
+            }
         }
-        else
+        if (enemyEmpty)
         {
-            gm.sounds.attack.Play();
+            if (!itsBoss || bossNeeds == 2)
+            {
+                gm.sounds.satisfy.Play();
+                isSatisfy = true;
+                agent.speed =speed*2;
+                animator.speed = .5f*speed;
+                //animator.Play("Victory");
+                //destroyPS.Play();
+                gm.AddMoney(priceOfSatisfy);
+                gm.enemySatisfy(gameObject);
+                emptyImage.SetActive(false);
+                smileImage.SetActive(true);
+                //Destroy(gameObject, 0.7f);
+            }
+            else
+            {
+                bossNeeds++;
+                UIflowers[bossNeeds-1].gameObject.SetActive(false);
+                UIflowers[bossNeeds].gameObject.SetActive(true);
+                flowersTypeNeed[bossNeeds] = maxFlowersType[bossNeeds-1];
+                maxFlowersType[bossNeeds] = flowersTypeNeed[bossNeeds];
+            }
         }
+        gm.sounds.attack.Play();
     }
     public void AddWine(float strenght, float time )
     {

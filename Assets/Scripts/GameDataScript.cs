@@ -13,6 +13,7 @@ public class GameDataScript :MonoBehaviour
     public static float soundVolume;
     public static bool isMute;
     public static AudioMixerGroup audioMixer = Resources.Load<AudioMixerGroup>("AudioMixer");
+    public static UnityEvent changeRange = new UnityEvent();
     public static void SetSoundVolume(float volume)
     {
         soundVolume = volume;
@@ -22,6 +23,10 @@ public class GameDataScript :MonoBehaviour
     {
         musicVolume = volume;
         audioMixer.audioMixer.SetFloat("Music", musicVolume);
+    }
+    public static void LevelRange()
+    {
+        changeRange?.Invoke();
     }
 
 }

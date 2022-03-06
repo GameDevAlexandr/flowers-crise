@@ -63,6 +63,8 @@
     <Compile Include="Assets\Scripts\TowersScropts\EmptyForBuildScript.cs" />
     <Compile Include="Assets\Scripts\TowersScropts\TowerUIScript.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\CharacterScript\VisiblePath.cs" />
+    <Compile Include="Assets\Scripts\TowersScropts\UpgradeIndicator.cs" />
     <Compile Include="Assets\Scripts\TowersScropts\GreenHouseScript.cs" />
     <Compile Include="Assets\Scripts\CharacterScript\Spawner.cs" />
     <Compile Include="Assets\Scripts\TowersScropts\FlowerScript.cs" />
@@ -76,8 +78,6 @@
     <Compile Include="Assets\Scripts\ArrayScript.cs" />
     <Compile Include="Assets\Scripts\GameDataScript.cs" />
     <Compile Include="Assets\Scripts\CharacterScript\WorkerScript.cs" />
-    <Compile Include="Assets\Scripts\CharacterScript\VisiblePath.cs" />
-    <Compile Include="Assets\Scripts\TowersScropts\UpgradeIndicator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

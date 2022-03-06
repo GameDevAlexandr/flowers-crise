@@ -37,13 +37,21 @@ public class GreenHouseScript : MonoBehaviour
         {
             for (int i = 0; i < markets.Count; i++)
             {
-                int item = markets[i].flowersType[markets[i].needFlowerType];
-                if (item < needItem && !markets[i].used)
+                if (markets[i] != null)
                 {
-                    needItem = item;
-                    needFlower = markets[i].needFlowerType;
-                    neededPosition = markets[i].transform.position;
-                    flowerMarket = markets[i];
+                    int item = markets[i].flowersType[markets[i].needFlowerType];
+                    if (item < needItem && !markets[i].used)
+                    {
+                        needItem = item;
+                        needFlower = markets[i].needFlowerType;
+                        neededPosition = markets[i].transform.position;
+                        flowerMarket = markets[i];
+                    }
+                }
+                else
+                {
+                    GetTowers();
+                    break;
                 }
             }
             if (!firstWorkerIsCreate)

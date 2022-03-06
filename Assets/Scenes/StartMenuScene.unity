@@ -640,9 +640,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'About
-
-'
+  m_Text: "\u043E\u0431 \u0438\u0433\u0440\u0435\n"
 --- !u!222 &367370024
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -766,6 +764,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficultySlider: {fileID: 0}
+  soundSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
+  muteToggle: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,9 +1187,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Exit
-
-'
+  m_Text: "\u0432\u044B\u0445\u043E\u0434"
 --- !u!222 &1010821441
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1701,7 +1700,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: "\u0418\u0433\u0440\u0430\u0442\u044C"
 --- !u!222 &1945846845
 CanvasRenderer:
   m_ObjectHideFlags: 0
