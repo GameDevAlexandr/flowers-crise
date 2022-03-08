@@ -23,6 +23,7 @@ public class TowerScript : MonoBehaviour
     [SerializeField] private float boostReloadTime;
     [SerializeField] private int maxUpgardeLevel;
     [SerializeField] bool itsMarket;
+    [SerializeField] ParticleSystem effectBoost;
     private ParticleSystem radiusSphere;
     private Text priceUpgradeText;
     private float boostTimer;
@@ -108,11 +109,13 @@ public class TowerScript : MonoBehaviour
             gm.sounds.boost.Play();
             boostTimer = Time.time;
             boostButton.interactable = false;
+            effectBoost?.Play();
         }
         else
         {
             boostOn = false;
             boostReloadTimer = Time.time;
+            effectBoost?.Stop();
         }
         
     }
