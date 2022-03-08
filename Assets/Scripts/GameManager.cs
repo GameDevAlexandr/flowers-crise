@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     private TowerUIScript selectedTower;
     private List<Spawner> spawners;
     private int counterPage;
+    private int spawnNumber;
     
     private void Start()
     {
@@ -128,7 +129,18 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                sounds.backGroundMusic.Stop();
+                if (spawnNumber == 0)
+                {                   
+                    sounds.backGroundMusic = sounds.wawe2;
+                }
+                else
+                {
+                    sounds.backGroundMusic = sounds.wawe3;                   
+                }
+                sounds.backGroundMusic.Play();
                 spawners[0].StartSpawner();
+                spawnNumber++;
             }
         }
     }

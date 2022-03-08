@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[ExecuteInEditMode]
 public class VisiblePath : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -16,7 +16,7 @@ public class VisiblePath : MonoBehaviour
         {
             Gizmos.color = Color.red;
             Gizmos.DrawLine(pathElements[i].position, pathElements[i+1].position);
-            Gizmos.color = Color.green;
+            Gizmos.color = Color.blue;
             Gizmos.DrawSphere(pathElements[i].position, 1);
         }
     }

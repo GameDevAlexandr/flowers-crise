@@ -18,6 +18,8 @@ public class EnemysScript : MonoBehaviour
     [SerializeField] private ParticleSystem drunkParticle;
     [SerializeField] private ParticleSystem destroyPS;
     [SerializeField] private bool itsBoss;
+    [SerializeField] GameObject flowersBaggage;
+    [SerializeField] Text payment; 
     private int[] maxFlowersType;
     private int pathIndex;
     private NavMeshAgent agent;
@@ -27,8 +29,11 @@ public class EnemysScript : MonoBehaviour
     private float drunkTime;
     private Animator animator;
     private int bossNeeds;
+    private Vector2 paymentPosition;
+    private bool isFlyPayment;
 
-        
+
+
     void Awake()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -44,6 +49,9 @@ public class EnemysScript : MonoBehaviour
         pathIndex = 1;
         isStarted = false;
         animator.speed = 0.25f*speed;
+        payment.text = "+" + priceOfSatisfy.ToString();
+        paymentPosition = payment.rectTransform.localPosition;
+        isFlyPayment = false;
     }
     private void Start()
     {
@@ -85,6 +93,13 @@ public class EnemysScript : MonoBehaviour
             }
         }
     }
+    private void FixedUpdate()
+    {
+        if (isFlyPayment)
+        {
+            FlyPayment();
+        }
+    }
     public void AddFlowers(int flowersCount, int index)
     {
         flowersTypeNeed[index] -= flowersCount;
@@ -110,13 +125,13 @@ public class EnemysScript : MonoBehaviour
                 isSatisfy = true;
                 agent.speed =speed*2;
                 animator.speed = .5f*speed;
-                //animator.Play("Victory");
-                //destroyPS.Play();
                 gm.AddMoney(priceOfSatisfy);
                 gm.enemySatisfy(gameObject);
                 emptyImage.SetActive(false);
                 smileImage.SetActive(true);
-                //Destroy(gameObject, 0.7f);
+                isFlyPayment = true;
+                payment.gameObject.SetActive(true);
+                isDrunk = false;
             }
             else
             {
@@ -152,5 +167,15 @@ public class EnemysScript : MonoBehaviour
         }
         gm.enemySatisfy(gameObject);
         Destroy(gameObject);
+    }
+    private void FlyPayment()
+    {
+        paymentPosition.y += 15;
+        payment.rectTransform.localPosition = paymentPosition;
+        if (paymentPosition.y >= 1000)
+        {
+            payment.gameObject.SetActive(false);
+            isFlyPayment = false;
+        }
     }
 }

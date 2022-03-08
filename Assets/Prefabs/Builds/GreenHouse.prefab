@@ -171,7 +171,7 @@ MonoBehaviour:
   towerIco: {fileID: 21300000, guid: 8b02637177e69c841922bc2d147c41fd, type: 3}
   priceTower: 30
   speed: 0
-  radius: 40
+  radius: 30
   boostOn: 0
   gm: {fileID: 0}
   isUpgrade: 0
@@ -213,8 +213,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 17.790003, y: 6.3762264, z: 10}
-  m_Center: {x: 0.14895916, y: 1.3401651, z: 0}
+  m_Size: {x: 10.5152645, y: 6.3762264, z: 10}
+  m_Center: {x: -0.31706715, y: 1.3401651, z: 0}
 --- !u!1 &1915830059089780736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,6 +1113,30 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 4685274241324408165, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685274241324408165, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685274241324408165, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685274241324408165, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685274241324408165, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685274241324408165, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 5619192157024465291, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -1133,6 +1157,30 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7276279153824103009, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7276279153824103009, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7276279153824103009, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7276279153824103009, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7276279153824103009, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7276279153824103009, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 7715386980163329048, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -1144,6 +1192,30 @@ PrefabInstance:
     - target: {fileID: 7715386980163329054, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UpgradeTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 7715386980163329055, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7715386980163329055, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7715386980163329055, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7715386980163329055, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7715386980163329055, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7715386980163329055, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7715386980235830607, guid: 2d17f2178d93a2f4283890fc85ef7807, type: 3}
       propertyPath: m_Layer

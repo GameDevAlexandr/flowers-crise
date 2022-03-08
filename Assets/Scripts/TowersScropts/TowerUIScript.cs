@@ -11,12 +11,25 @@ public class TowerUIScript : MonoBehaviour
     public Image[] flowersCounters;
     public void ActivateUI(bool isActive)
     {
-        towerUI.SetActive(isActive);
+        if (isActive)
+        {
+            towerUI.SetActive(isActive);
+        }
+        else
+        {
+            if(gameObject.activeSelf)
+            StartCoroutine(DiactivateMenu());
+        }
         
         if(radiusSphere!=null)
         radiusSphere.gameObject.SetActive(isActive);
 
         if (otherUI!=null)
         otherUI.SetActive(!isActive);        
+    }
+    IEnumerator DiactivateMenu()
+    {
+        yield return new WaitForSeconds(0.1f);
+        towerUI.SetActive(false);
     }
 }

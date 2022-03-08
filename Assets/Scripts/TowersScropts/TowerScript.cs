@@ -28,6 +28,7 @@ public class TowerScript : MonoBehaviour
     private float boostTimer;
     private float boostReloadTimer;
     private Text bTimertext;
+    private TowerUIScript tUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +41,8 @@ public class TowerScript : MonoBehaviour
         destroyText.text ="+"+ sellPrise.ToString();
         boostOn = false;
         boostReloadTimer = Time.time;
-        radiusSphere = GetComponent<TowerUIScript>().radiusSphere;
+        tUI = GetComponent<TowerUIScript>();
+        radiusSphere = tUI.radiusSphere;
         setRadius();
     }
 
@@ -80,6 +82,7 @@ public class TowerScript : MonoBehaviour
     }
     public void UpgradeTower()
     {
+        tUI.ActivateUI(false);
         levelTower ++;
         isUpgrade = true;
         gm.AddMoney(-priceOfUpgrade);
@@ -87,6 +90,8 @@ public class TowerScript : MonoBehaviour
         if (levelTower < maxUpgardeLevel)
         {
             priceOfUpgrade *= 2;
+            sellPrise += sellPrise * 2;
+            destroyText.text = sellPrise.ToString();
             priceUpgradeText.text = priceOfUpgrade.ToString();
         }
         else
@@ -98,6 +103,7 @@ public class TowerScript : MonoBehaviour
     {
         if (active)
         {
+            tUI.ActivateUI(false);
             boostOn = true;
             gm.sounds.boost.Play();
             boostTimer = Time.time;

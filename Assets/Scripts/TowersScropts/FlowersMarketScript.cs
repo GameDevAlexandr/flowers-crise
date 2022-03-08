@@ -81,6 +81,8 @@ public class FlowersMarketScript : MonoBehaviour
         }
         else
         {
+            ts.radius += 3;
+            ts.setRadius();
             wineActionTime += 3;
         }
         for (int i = 0; i < maxFlowers.Length; i++)
@@ -88,7 +90,6 @@ public class FlowersMarketScript : MonoBehaviour
             maxFlowers[i] += maxFlowers[i];
             GetFlowers(i, 0);
         }
-        tUI.ActivateUI(false);
     }
     public void Boosting(bool active)
     {

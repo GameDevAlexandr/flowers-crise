@@ -72,6 +72,6 @@ public class Tutorial : MonoBehaviour
         downHandle.rectTransform.localPosition = startHandlePosition;
         scroll.fillAmount = 0;
         rolling = true;
-        gm.sounds.bookOfComplaint.Play();
+        gm.sounds?.bookOfComplaint.Play();
     }
 }
