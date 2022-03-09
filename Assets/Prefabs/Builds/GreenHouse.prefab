@@ -173,6 +173,7 @@ MonoBehaviour:
   priceTower: 30
   speed: 0
   radius: 30
+  tUI: {fileID: 0}
   boostOn: 0
   gm: {fileID: 0}
   isUpgrade: 0
@@ -215,8 +216,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.5152645, y: 6.3762264, z: 10}
-  m_Center: {x: -0.31706715, y: 1.3401651, z: 0}
+  m_Size: {x: 9.036499, y: 3.3816252, z: 9.376656}
+  m_Center: {x: 0.4223156, y: -0.15713549, z: 1.2842407}
 --- !u!1 &1915830059089780736
 GameObject:
   m_ObjectHideFlags: 0

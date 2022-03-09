@@ -16,7 +16,7 @@ GameObject:
   m_Layer: 8
   m_Name: FlowerMarket
   m_TagString: Tower
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4
   m_IsActive: 1
@@ -76,6 +76,7 @@ MonoBehaviour:
   priceTower: 50
   speed: 35
   radius: 30
+  tUI: {fileID: 0}
   boostOn: 0
   gm: {fileID: 0}
   isUpgrade: 0

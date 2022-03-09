@@ -69,7 +69,12 @@ public class WorkerScript : MonoBehaviour
         flowerImage.gameObject.SetActive(true);
         flowerImage.sprite = flowersIco[flowerType];
         toMarket = true;
-        startPosition = transform.position;
+        Vector3 randomizePosition = transform.position;
+        float spreadX = Random.Range(-3.0f, 3.0f);
+        float spreadY = Random.Range(-3.0f, 3.0f);
+        randomizePosition.x += spreadX;
+        randomizePosition.z += spreadY;
+        startPosition = randomizePosition;
         targetMarket = gh.flowerMarket;
         agent = GetComponent<NavMeshAgent>();
         agent.speed = speed;

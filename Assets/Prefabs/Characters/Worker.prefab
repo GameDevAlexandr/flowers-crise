@@ -2011,6 +2011,8 @@ GameObject:
   - component: {fileID: 8692258577028696709}
   - component: {fileID: 8692258577028696705}
   - component: {fileID: -7013386655573370689}
+  - component: {fileID: -6913955939033411355}
+  - component: {fileID: 5248691664508855177}
   m_Layer: 6
   m_Name: Worker
   m_TagString: Untagged
@@ -2043,7 +2045,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8692258577028696706}
   m_Enabled: 1
   m_AgentTypeID: -1372625422
-  m_Radius: 0.15
+  m_Radius: 0.3
   m_Speed: 5
   m_Acceleration: 30
   avoidancePriority: 50
@@ -2095,6 +2097,34 @@ MonoBehaviour:
   - {fileID: 6576635018467210988}
   - {fileID: 2503773719668759209}
   flowerImage: {fileID: 7675157102653734873}
+--- !u!208 &-6913955939033411355
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692258577028696706}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.05, y: 0.05, z: 0.05}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!114 &5248691664508855177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692258577028696706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be09e47e1602d2c46ac01c5c7848a5be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8692258577318381017
 GameObject:
   m_ObjectHideFlags: 0

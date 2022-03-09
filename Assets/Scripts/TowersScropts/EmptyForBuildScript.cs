@@ -11,9 +11,11 @@ public class EmptyForBuildScript : MonoBehaviour
     private GameManager gm;
     private int[] towersPrice;
     private TowerScript[] ts;
+    private TowerUIScript tUI;
     private void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        tUI = GetComponent<TowerUIScript>();
         towersPrice = new int[towersType.Length];
         ts = new TowerScript[towersType.Length];
         for (int i = 0; i <  towersType.Length; i++)
@@ -53,6 +55,7 @@ public class EmptyForBuildScript : MonoBehaviour
         {
             gm.greenHouseinScene.Add(newBuild.GetComponent<GreenHouseScript>());
         }
+        tUI.towerUI.SetActive(false);
         gameObject.SetActive(false);
     }
 }

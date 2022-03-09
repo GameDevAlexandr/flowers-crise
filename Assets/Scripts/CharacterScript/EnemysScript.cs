@@ -16,7 +16,7 @@ public class EnemysScript : MonoBehaviour
     [SerializeField] private GameObject emptyImage;
     [SerializeField] private GameObject smileImage;
     [SerializeField] private ParticleSystem drunkParticle;
-    [SerializeField] private ParticleSystem destroyPS;
+    [SerializeField] private ParticleSystem[] dropFlowersBoss;
     [SerializeField] private bool itsBoss;
     [SerializeField] GameObject flowersBaggage;
     [SerializeField] Text payment; 
@@ -136,6 +136,7 @@ public class EnemysScript : MonoBehaviour
             else
             {
                 gm.sounds.bossLaughter.Play();
+                dropFlowersBoss[bossNeeds].Play();
                 bossNeeds++;
                 UIflowers[bossNeeds-1].gameObject.SetActive(false);
                 UIflowers[bossNeeds].gameObject.SetActive(true);

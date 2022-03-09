@@ -59,7 +59,7 @@ public class GreenHouseScript : MonoBehaviour
                 firstWorkerIsCreate = true;
             }
         }
-        if (ts.isUpgrade||workers.Count==0&&markets.Count!=0)
+        if (ts.isUpgrade||workers.Count==0&&markets.Count!=0&&flowerMarket!=null)
         {
             ts.isUpgrade = false;
             WorkerCreate();

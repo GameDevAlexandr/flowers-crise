@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TowerUIScript : MonoBehaviour
 {
-    [SerializeField] GameObject towerUI;
+    public GameObject towerUI;
     [SerializeField] GameObject otherUI;
     public ParticleSystem radiusSphere;
     public Image[] flowersCounters;

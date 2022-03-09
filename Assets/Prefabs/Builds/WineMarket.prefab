@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 0
+  m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -411,6 +411,7 @@ MonoBehaviour:
   priceTower: 40
   speed: 35
   radius: 30
+  tUI: {fileID: 0}
   boostOn: 0
   gm: {fileID: 0}
   isUpgrade: 0

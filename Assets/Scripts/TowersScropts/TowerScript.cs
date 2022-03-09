@@ -8,8 +8,9 @@ public class TowerScript : MonoBehaviour
     public Sprite towerIco;
     public int priceTower;
     public float speed;
-    public float radius;  
-    [HideInInspector]public bool boostOn;
+    public float radius;
+    [HideInInspector] public TowerUIScript tUI;
+    [HideInInspector] public bool boostOn;
     [HideInInspector] public GameManager gm;
     [HideInInspector] public bool isUpgrade;
     [HideInInspector] public int levelTower;
@@ -29,7 +30,7 @@ public class TowerScript : MonoBehaviour
     private float boostTimer;
     private float boostReloadTimer;
     private Text bTimertext;
-    private TowerUIScript tUI;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -129,6 +130,10 @@ public class TowerScript : MonoBehaviour
         if (itsMarket)
         {
             gm.marketInScene.Remove(GetComponent<FlowersMarketScript>());
+        }
+        else
+        {
+            gm.greenHouseinScene.Remove(GetComponent<GreenHouseScript>());
         }
         gm.AddMoney(sellPrise);
         gm.sounds.sellBuilding.Play();
