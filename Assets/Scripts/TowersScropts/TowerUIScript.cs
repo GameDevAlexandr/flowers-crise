@@ -13,7 +13,7 @@ public class TowerUIScript : MonoBehaviour
     {
         if (isActive)
         {
-            towerUI.SetActive(isActive);
+            towerUI.SetActive(isActive);       
         }
         else
         {
@@ -31,5 +31,7 @@ public class TowerUIScript : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         towerUI.SetActive(false);
+        if (otherUI != null)
+        otherUI.SetActive(true);
     }
 }

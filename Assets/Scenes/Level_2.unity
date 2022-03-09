@@ -2730,7 +2730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emptyForTower: {fileID: 2459837443318863019, guid: 63e29f8a104928c4993ded8a8a02670e, type: 3}
-  moneyCount: 100
+  moneyCount: 150
   sounds: {fileID: 0}
   marketInScene: []
   greenHouseinScene: []

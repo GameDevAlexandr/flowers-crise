@@ -2993,7 +2993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnNumber: 0
   enemys:
-  - {fileID: 7178252167050157560, guid: 56190074697eb3741bc285c144c133d2, type: 3}
+  - {fileID: 191627323742037689, guid: d754924140ac4104e997d1e69f633f7b, type: 3}
   - {fileID: 7178252167050157560, guid: 56190074697eb3741bc285c144c133d2, type: 3}
   - {fileID: 154451155614140294, guid: d692efca3e94b8142b16bce91ad54493, type: 3}
   - {fileID: 154451155614140294, guid: d692efca3e94b8142b16bce91ad54493, type: 3}
@@ -3008,7 +3008,7 @@ MonoBehaviour:
   - {fileID: 2931362865932657544, guid: c06001a9eadfb8146863b835f0355345, type: 3}
   - {fileID: 5404000325948852508, guid: 5433c387e15e21345a46ab120c0a0d94, type: 3}
   - {fileID: 2931362865932657544, guid: 6e72b9c125497df4a85b0aebc9ff23ea, type: 3}
-  - {fileID: 3668735048302873877, guid: 9fbe1f2b698924b44bb053e28bc2b8e3, type: 3}
+  - {fileID: 191627323742037689, guid: d754924140ac4104e997d1e69f633f7b, type: 3}
   - {fileID: 2931362865932657544, guid: 0d0dcb60581a8674aad293654bc50375, type: 3}
   - {fileID: 2931362865932657544, guid: 0d0dcb60581a8674aad293654bc50375, type: 3}
   - {fileID: 2931362865932657544, guid: c06001a9eadfb8146863b835f0355345, type: 3}
@@ -3149,7 +3149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emptyForTower: {fileID: 2459837443318863019, guid: 63e29f8a104928c4993ded8a8a02670e, type: 3}
-  moneyCount: 100
+  moneyCount: 150
   sounds: {fileID: 0}
   marketInScene: []
   greenHouseinScene: []
