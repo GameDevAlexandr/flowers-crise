@@ -15,9 +15,11 @@ public class Sounds : MonoBehaviour
     public AudioSource bookOfComplaint;
     public AudioSource click;
     public AudioSource towerMenu;
+    public AudioSource welcomeBoss;
+    public AudioSource bossLaughter;
     public AudioSource backGroundMusic;
     public AudioSource wawe2;
     public AudioSource wawe3;
     public AudioSource loseMusic;
-    public AudioSource victoryMusic;    
+    public AudioSource victoryMusic;       
 }

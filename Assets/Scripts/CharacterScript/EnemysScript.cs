@@ -135,6 +135,7 @@ public class EnemysScript : MonoBehaviour
             }
             else
             {
+                gm.sounds.bossLaughter.Play();
                 bossNeeds++;
                 UIflowers[bossNeeds-1].gameObject.SetActive(false);
                 UIflowers[bossNeeds].gameObject.SetActive(true);
@@ -176,6 +177,13 @@ public class EnemysScript : MonoBehaviour
         {
             payment.gameObject.SetActive(false);
             isFlyPayment = false;
+        }
+    }
+    private void OnEnable()
+    {
+        if (itsBoss)
+        {
+            gm.sounds.welcomeBoss.Play();
         }
     }
 }
