@@ -7,7 +7,7 @@ using static GameDataScript;
 
 public class UIScript : MonoBehaviour
 {
-    private GameManager gm;
+    [SerializeField]private GameManager gm;
     [SerializeField] private Slider soundSlider;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Toggle muteToggle;
@@ -15,16 +15,16 @@ public class UIScript : MonoBehaviour
     [SerializeField] private Image rightHandle;
     [SerializeField] private GameObject starImageL2;
     [SerializeField] private GameObject starImageL3;
-    [HideInInspector] public Text moneyText;
-    [HideInInspector] public Text messageText;
+    public Text moneyText;
+    public Text messageText;
     public GameObject losePanel;
     public GameObject victoryPanel;
 
     void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        moneyText = GameObject.Find("MoneyText").GetComponent<Text>();
-        messageText = GameObject.Find("MessageText").GetComponent<Text>();
+        //moneyText = GameObject.Find("MoneyText").GetComponent<Text>();
+        //messageText = GameObject.Find("MessageText").GetComponent<Text>();
         losePanel.SetActive(false);
         victoryPanel.SetActive(false);
         soundSlider.value = soundVolume;
