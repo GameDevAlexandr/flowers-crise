@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
         {
             spawners[0].StartSpawner();
         }
+        Time.timeScale = 1;
         //Pause(true);
         //SoundEvent.AddListener(SetAudioVolume);
     }

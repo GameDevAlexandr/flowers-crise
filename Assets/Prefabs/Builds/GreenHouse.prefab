@@ -172,7 +172,7 @@ MonoBehaviour:
   towerIco: {fileID: 21300000, guid: 8b02637177e69c841922bc2d147c41fd, type: 3}
   priceTower: 30
   speed: 0
-  radius: 30
+  radius: 150
   tUI: {fileID: 0}
   boostOn: 0
   gm: {fileID: 0}
@@ -184,8 +184,8 @@ MonoBehaviour:
   destroyText: {fileID: 3445185788440117978}
   priceOfUpgrade: 60
   sellPrise: 15
-  boostTime: 10
-  boostReloadTime: 10
+  boostTime: 15
+  boostReloadTime: 15
   maxUpgardeLevel: 3
   itsMarket: 0
   effectBoost: {fileID: 3271916189165923332}
@@ -217,8 +217,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 9.036499, y: 3.3816252, z: 9.376656}
-  m_Center: {x: 0.4223156, y: -0.15713549, z: 1.2842407}
+  m_Size: {x: 22.68907, y: 3.3816252, z: 26.20917}
+  m_Center: {x: -3.5198793, y: -0.15713549, z: 0.4483881}
 --- !u!1 &1915830059089780736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1818,15 +1818,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34c1876baa69b8b4db10d7b7bcc5b316, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.30070576
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34c1876baa69b8b4db10d7b7bcc5b316, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34c1876baa69b8b4db10d7b7bcc5b316, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.953717
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34c1876baa69b8b4db10d7b7bcc5b316, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1838,7 +1838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34c1876baa69b8b4db10d7b7bcc5b316, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -215
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34c1876baa69b8b4db10d7b7bcc5b316, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

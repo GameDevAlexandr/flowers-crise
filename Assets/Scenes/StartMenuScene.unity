@@ -1844,6 +1844,7 @@ MonoBehaviour:
   soundSlider: {fileID: 1101791257}
   musicSlider: {fileID: 1016442977}
   muteToggle: {fileID: 505171201}
+  levelMarks: []
 --- !u!114 &505171201 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8522626081901914960, guid: 5b2275cde262d734299687f8c73f9fd4, type: 3}
@@ -2879,7 +2880,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1064538316
 RectTransform:
   m_ObjectHideFlags: 0
