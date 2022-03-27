@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using static GameDataScript;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour
     
     public GameObject emptyForTower;
     public int moneyCount;
+    [HideInInspector] public static UnityEvent addMoneyEvent = new UnityEvent();
     [HideInInspector] public Sounds sounds;
     [HideInInspector] public List<FlowersMarketScript> marketInScene;
     [HideInInspector] public List<GreenHouseScript> greenHouseinScene;
@@ -20,11 +22,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int pagesCount;
     [SerializeField] private int TwoStar;
     [SerializeField] private int ThreeStar;
+    [SerializeField] private bool noSpawnOnStart;
     private UIScript ui;
     private TowerUIScript selectedTower;
     private List<Spawner> spawners;
     private int counterPage;
     private int spawnNumber;
+    private float timeScaler;
     
     private void Start()
     {
@@ -47,7 +51,10 @@ public class GameManager : MonoBehaviour
         ui.moneyText.text = moneyCount.ToString();
         SetSoundVolume(soundVolume);
         SetMusicVolume(soundVolume);
-        spawners[0].StartSpawner();
+        if (!noSpawnOnStart)
+        {
+            spawners[0].StartSpawner();
+        }
         //Pause(true);
         //SoundEvent.AddListener(SetAudioVolume);
     }
@@ -80,6 +87,7 @@ public class GameManager : MonoBehaviour
     {
         moneyCount += money;
         ui.moneyText.text = moneyCount.ToString();
+        addMoneyEvent.Invoke();
     }
     public void FlipPage(int count)
     {
@@ -110,11 +118,12 @@ public class GameManager : MonoBehaviour
         sounds.click.Play();
         if (isPause)
         {
+            timeScaler = Time.timeScale;
             Time.timeScale = 0;
         }
         else
         {
-            Time.timeScale = 1;
+            Time.timeScale = timeScaler;
         }
     }
     public void enemySatisfy(GameObject enemy)

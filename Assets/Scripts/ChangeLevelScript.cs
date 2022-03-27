@@ -9,6 +9,7 @@ public class ChangeLevelScript : MonoBehaviour
 {
     [SerializeField] private int level;
     [SerializeField] private GameObject easyStar, middleStar, hardStar;
+    [SerializeField] private UIAnimation[] loadAnimation;
     private Image loadProgress;
     private void Awake()
     {
@@ -31,6 +32,8 @@ public class ChangeLevelScript : MonoBehaviour
         {
             float progress = operation.progress/0.9f;
             loadProgress.fillAmount = progress;
+            int animationIndex = (int)(progress * 9);
+            loadAnimation[animationIndex].ActivateAnimation();
             yield return null;
         }
         

@@ -11,6 +11,7 @@ public class StartMenuScript : MonoBehaviour
     [SerializeField] private Slider soundSlider;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Toggle muteToggle;
+    [SerializeField] private Button[] levelMarks;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,13 @@ public class StartMenuScript : MonoBehaviour
         musicSlider.value = musicVolume;
         muteToggle.isOn = isMute;
         setDifficulty();
+        for (int i = 0; i < levelRange.Length; i++)
+        {
+            if (levelRange[i] > 0 && i<levelMarks.Length-1)
+            {
+                levelMarks[i + 1].interactable = true;
+            }
+        }
     }
 
     // Update is called once per frame

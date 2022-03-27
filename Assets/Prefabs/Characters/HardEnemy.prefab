@@ -62,7 +62,7 @@ MonoBehaviour:
   emptyImage: {fileID: 8872933389164751928}
   smileImage: {fileID: 1625883257710481834}
   drunkParticle: {fileID: 4835828914957987675}
-  destroyPS: {fileID: 7501239123424349383}
+  dropFlowersBoss: []
   itsBoss: 0
   flowersBaggage: {fileID: 0}
   payment: {fileID: 5491591378260662499}
@@ -334,11 +334,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1236638947563106932, guid: 335b879a3cb39e14ca403e3986363a55, type: 3}
   m_PrefabInstance: {fileID: 1016507003227665188}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &7501239123424349383 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7350607444720779235, guid: 335b879a3cb39e14ca403e3986363a55, type: 3}
-  m_PrefabInstance: {fileID: 1016507003227665188}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1102688483194310493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -495,7 +490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5909999797157058250, guid: 29dea60afe10cae45afa6181fd345a04, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3.5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5909999797157058250, guid: 29dea60afe10cae45afa6181fd345a04, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

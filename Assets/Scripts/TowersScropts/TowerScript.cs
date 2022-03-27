@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class TowerScript : MonoBehaviour
@@ -9,6 +10,8 @@ public class TowerScript : MonoBehaviour
     public int priceTower;
     public float speed;
     public float radius;
+    [HideInInspector] public static UnityEvent upgradeEvent = new UnityEvent();
+    [HideInInspector] public static UnityEvent boostEvent = new UnityEvent();
     [HideInInspector] public TowerUIScript tUI;
     [HideInInspector] public bool boostOn;
     [HideInInspector] public GameManager gm;
@@ -89,6 +92,7 @@ public class TowerScript : MonoBehaviour
         isUpgrade = true;
         gm.AddMoney(-priceOfUpgrade);
         gm.sounds.upgrade.Play();
+        upgradeEvent.Invoke();
         if (levelTower < maxUpgardeLevel)
         {
             priceOfUpgrade *= 2;
@@ -111,6 +115,7 @@ public class TowerScript : MonoBehaviour
             boostTimer = Time.time;
             boostButton.interactable = false;
             effectBoost?.Play();
+            boostEvent.Invoke();
         }
         else
         {

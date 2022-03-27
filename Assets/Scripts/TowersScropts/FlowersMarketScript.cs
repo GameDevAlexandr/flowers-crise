@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FlowersMarketScript : MonoBehaviour
 {  
@@ -8,6 +9,7 @@ public class FlowersMarketScript : MonoBehaviour
     public bool itsWineMarket;
     public float wineStrenght;
     public float wineActionTime;
+    [HideInInspector] public static UnityEvent fullFlowerEvent = new UnityEvent();
     [HideInInspector] public int needFlowerType;
     [HideInInspector] public bool used;
     [SerializeField] private int[] maxFlowers;
@@ -67,6 +69,17 @@ public class FlowersMarketScript : MonoBehaviour
         flowersType[index] += count;
         if(tUI.flowersCounters[index]!=null)
         tUI.flowersCounters[index].fillAmount = 1 / (float)maxFlowers[index] * flowersType[index];
+        for (int i = 0; i < 3; i++)
+        {
+            if (flowersType[i] != maxFlowers[i])
+            {
+                break;
+            }
+            if (i == 2)
+            {
+                fullFlowerEvent.Invoke();
+            }
+        }
     }
     public void SetNeededFlower(int flowerNeed)
     {

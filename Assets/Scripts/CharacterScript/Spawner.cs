@@ -21,7 +21,8 @@ public class Spawner : MonoBehaviour
     private float startSpawnTimer;
     private bool isStartWave;
     private Transform[][] pathElements;
-    private bool isStartSpawn;
+    [SerializeField] private bool isStartSpawn;
+    private bool isPause = false;
     void Start()
     {
         pathElements = new Transform[3][];
@@ -34,6 +35,7 @@ public class Spawner : MonoBehaviour
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         enemyObjects = new List<GameObject>();
         enemyCounter = new List<GameObject>();
+        Learn.learnEvent.AddListener(SpawnPause);
         for (int i = 0; i < enemys.Length; i++)
         {
             enemys[i].SetActive(false);
@@ -73,15 +75,18 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isStartSpawn)
+        if (!isPause)
         {
-            if (Time.time - startSpawnTimer > timeBetweenEnemy && !isStartWave && enemyObjects.Count != 0)
+            if (isStartSpawn)
             {
-                Spawn();
-            }
-            if (isStartWave && Time.time - startWaveTimer > timeBetweenWave)
-            {
-                isStartWave = false;
+                if (Time.time - startSpawnTimer > timeBetweenEnemy && !isStartWave && enemyObjects.Count != 0)
+                {
+                    Spawn();
+                }
+                if (isStartWave && Time.time - startWaveTimer > timeBetweenWave)
+                {
+                    isStartWave = false;
+                }
             }
         }
     }
@@ -105,5 +110,9 @@ public class Spawner : MonoBehaviour
         gm.SendMessage(spawnMessage, 2);
         isStartSpawn = true;
         gm.enemys = enemyCounter;
+    }
+    private void SpawnPause(bool pauseEvent)
+    {
+        isPause = !pauseEvent;
     }
 }

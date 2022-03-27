@@ -152,7 +152,7 @@ MonoBehaviour:
   emptyImage: {fileID: 3581874435396296724}
   smileImage: {fileID: 7737133475628638434}
   drunkParticle: {fileID: 687910534424912759}
-  destroyPS: {fileID: 0}
+  dropFlowersBoss: []
   itsBoss: 0
   flowersBaggage: {fileID: 0}
   payment: {fileID: 1761602891875615508}
@@ -655,7 +655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5909999797157058250, guid: 29dea60afe10cae45afa6181fd345a04, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3.4
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 5909999797157058250, guid: 29dea60afe10cae45afa6181fd345a04, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

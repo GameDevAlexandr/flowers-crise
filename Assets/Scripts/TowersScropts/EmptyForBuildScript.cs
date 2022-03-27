@@ -1,11 +1,11 @@
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class EmptyForBuildScript : MonoBehaviour
 {
+    public static UnityEvent buildingEvent = new UnityEvent();
     [SerializeField] private GameObject[] towersType;
     [SerializeField] private Button[] towersButton;
     private GameManager gm;
@@ -46,6 +46,7 @@ public class EmptyForBuildScript : MonoBehaviour
         newBuild.transform.position = transform.position;
         newBuild.GetComponent<TowerScript>().empty = gameObject;
         gm.AddMoney(-ts[towerNumber].priceTower);
+        buildingEvent.Invoke();
         if (towersType[towerNumber].name != "GreenHouse")
         {
             gm.marketInScene.Add(newBuild.GetComponent<FlowersMarketScript>());
