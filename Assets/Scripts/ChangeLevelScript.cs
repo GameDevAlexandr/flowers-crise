@@ -30,9 +30,10 @@ public class ChangeLevelScript : MonoBehaviour
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
         while (!operation.isDone)
         {
-            float progress = operation.progress/0.9f;
+            float progress = operation.progress / 0.9f;
             loadProgress.fillAmount = progress;
             int animationIndex = (int)(progress * 9);
+            loadAnimation[animationIndex].gameObject.SetActive(true);
             loadAnimation[animationIndex].ActivateAnimation();
             yield return null;
         }

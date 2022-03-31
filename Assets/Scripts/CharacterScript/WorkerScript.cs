@@ -21,6 +21,7 @@ public class WorkerScript : MonoBehaviour
     private FlowersMarketScript targetMarket;
     private bool isStarted;
     private Animator animator;
+    private bool boosting;
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -87,12 +88,14 @@ public class WorkerScript : MonoBehaviour
         {
             agent.speed *= 2; 
             animator.speed *= 2;
+            boosting = true;
 
         }
-        else
+        else if(boosting)
         {
             agent.speed *= 0.5f;
             animator.speed *= 0.5f;
+            boosting = false;
         }
     }
 }

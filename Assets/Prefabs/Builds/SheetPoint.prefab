@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Tower
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &561856751979483448
 Transform:
@@ -79,8 +79,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bea22f100b9774149bb7d1abdad8c001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerUI: {fileID: 561856752017367297}
   otherUI: {fileID: 0}
+  isActiveLearn: 0
+  towerUI: {fileID: 561856752017367297}
   radiusSphere: {fileID: 2731670091444010856}
   flowersCounters: []
 --- !u!1 &561856752017367297
@@ -100,7 +101,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 0
 --- !u!224 &561856752017367296
 RectTransform:
@@ -198,7 +199,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2733408593615802712
 Transform:
@@ -208,7 +209,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2733408593615802719}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9, y: 3.7, z: -3.5}
+  m_LocalPosition: {x: 0.9, y: 5.2, z: -3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 561856751979483448}
@@ -279,6 +280,14 @@ PrefabInstance:
     - target: {fileID: 1897870375467409279, guid: 9d684055d69f8084db3d2a9d4bf1e0a8, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -650
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756452964175963698, guid: 9d684055d69f8084db3d2a9d4bf1e0a8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878100759498312697, guid: 9d684055d69f8084db3d2a9d4bf1e0a8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3309297653938239896, guid: 9d684055d69f8084db3d2a9d4bf1e0a8, type: 3}
       propertyPath: m_Pivot.x
@@ -371,6 +380,14 @@ PrefabInstance:
     - target: {fileID: 3309297653938239897, guid: 9d684055d69f8084db3d2a9d4bf1e0a8, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309297653938239897, guid: 9d684055d69f8084db3d2a9d4bf1e0a8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370086162156473418, guid: 9d684055d69f8084db3d2a9d4bf1e0a8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4030110246440205829, guid: 9d684055d69f8084db3d2a9d4bf1e0a8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -465,6 +482,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7459940991740202999, guid: 9fd1d9af04ed6514c8fcebc5940774d1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fd1d9af04ed6514c8fcebc5940774d1, type: 3}
 --- !u!4 &2731670091444010858 stripped
@@ -551,6 +572,10 @@ PrefabInstance:
     - target: {fileID: 5201635037052426026, guid: 87e0b1167e2b4944d80a9843f569b2eb, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201635037052426026, guid: 87e0b1167e2b4944d80a9843f569b2eb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5201635037052426027, guid: 87e0b1167e2b4944d80a9843f569b2eb, type: 3}
       propertyPath: ShapeModule.radius.value

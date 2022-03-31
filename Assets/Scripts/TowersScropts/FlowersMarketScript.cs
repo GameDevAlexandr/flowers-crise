@@ -94,7 +94,7 @@ public class FlowersMarketScript : MonoBehaviour
         }
         else
         {
-            ts.radius += 3;
+            ts.radius += 7;
             ts.setRadius();
             wineActionTime += 3;
         }

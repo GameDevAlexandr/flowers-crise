@@ -11,21 +11,26 @@ public class BossAnimation : MonoBehaviour
     private Image bossImage;
     private bool activateAnimation = false;
     private int frameCounter =0;
+    private int invokeCounter;
+    private float deactivateTimer;
     private void Start()
     {
         Learn.bossActivate.AddListener(ActivateBoss);
         bossImage = GetComponent<Image>();
         ActivateBoss(!noActive);
+        deactivateTimer = float.MaxValue;
     }
     public void ActivateBoss(bool isActive)
     {
         activateAnimation = isActive;
         if (isActive)
         {
-            StartCoroutine(Animate());
+            invokeCounter++;
+            StartCoroutine(Animate(invokeCounter));
+            deactivateTimer = float.MaxValue;
         }
     }
-    IEnumerator Animate()
+    IEnumerator Animate(int ic)
     {
         yield return new WaitForSeconds(animationSpeed);
         if (activateAnimation || frameCounter != 0)
@@ -36,8 +41,16 @@ public class BossAnimation : MonoBehaviour
                 frameCounter = 0;
             }
             bossImage.sprite = spritesAnimation[frameCounter];
-            StartCoroutine(Animate());
+            StartCoroutine(Animate(ic));
         }
-       
+        deactivateTimer = Time.time; 
+    }
+    private void Update()
+    {
+        if(Time.time - deactivateTimer > 3)
+        {
+            transform.parent.gameObject.SetActive(false);
+            deactivateTimer = float.MaxValue;
+        }
     }
 }

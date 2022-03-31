@@ -25,10 +25,9 @@ public class Learn : MonoBehaviour
         TowerScript.upgradeEvent.AddListener(UpgradeEvent);
         TowerScript.boostEvent.AddListener(BoostEvent);
         GameManager.addMoneyEvent.AddListener(AddMoneyEvent);
+        TowerUIScript.firstClickEvent.AddListener(FirstClickEvent);
         FlowersMarketScript.fullFlowerEvent.AddListener(FullFlowerEvent);
         hintText = messagePanel.GetComponentInChildren<Text>();
-        SendMessage("Первое, что необходимо сделать - это построить цветочную лавку. " +
-            "Выделите фундамент и в выпадающем меню нажмите на кнопку строительства.");
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     public void ActivateHint()
@@ -75,7 +74,7 @@ public class Learn : MonoBehaviour
         stringAtomazer = message.ToCharArray();
         charCounter = 0;
         hintText.text = "";
-        //bossActivate.Invoke(true);
+        bossActivate.Invoke(true);
         StartCoroutine(SpellMessage());
     }
     IEnumerator SpellMessage()
@@ -129,7 +128,7 @@ public class Learn : MonoBehaviour
             SendMessage("О, нет!, наши запасы иссякли, нам нечего предложить поупателям, немедленно постройте сад!");
             nextObject[0].SetActive(true);
         }
-        if(gm.moneyCount==100 && messageCounter == 6)
+        if(gm.moneyCount>=100 && messageCounter == 6)
         {
             learnEvent.Invoke(false);
             SendMessage("Время близится к вечеру, ждите самого большого наплыва покупателей. Нам не справится с ними, если мы не улучшим цветочную лавку.");
@@ -143,6 +142,14 @@ public class Learn : MonoBehaviour
             SendMessage("Вижу, ты в этом деле лучший! Но время стремится к полудню, поэтому будь готов, покупателей станет больше!");
             learnEvent.Invoke(true);
             pointer.SetActive(false);
+        }
+    }
+    private void FirstClickEvent()
+    {
+        if (messageCounter == -1)
+        {
+            SendMessage("Первое, что необходимо сделать - это построить цветочную лавку. " +
+                         "Нажмите на соответствующую кнопку в меню.");
         }
     }
 }

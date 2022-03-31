@@ -14,6 +14,7 @@ public class GameDataScript :MonoBehaviour
     public static bool isMute;
     public static AudioMixerGroup audioMixer = Resources.Load<AudioMixerGroup>("AudioMixer");
     public static UnityEvent changeRange = new UnityEvent();
+    public static bool loadPreview = true;
     public static void SetSoundVolume(float volume)
     {
         soundVolume = volume;
