@@ -27,7 +27,10 @@ public class StartMenuScript : MonoBehaviour
                 levelMarks[i].interactable = true;
             }
         }
-        previewPanel?.SetActive(loadPreview);
+        if (previewPanel)
+        {
+            previewPanel.SetActive(loadPreview);
+        }
     }
 
     // Update is called once per frame
